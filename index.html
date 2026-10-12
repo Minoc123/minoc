@@ -431,5 +431,87 @@ function changerPhoto() {
 setInterval(changerPhoto, 4000);
 </script>
 
-</body>
+<!-- DIAPORAMA MINOC -->
+<section class="diaporama-minoc">
+  <h2>Ministère Notre Cité</h2>
+  <p>Bienvenue au MINOC</p>
+
+  <div class="cadre-diaporama">
+    <img
+      id="photoMinoc"
+      src="images/1790015115821.jpg"
+      alt="Ministère Notre Cité"
+    >
+  </div>
+</section>
+
+<style>
+.diaporama-minoc {
+  text-align: center;
+  padding: 20px 10px;
+  background: white;
+  color: #064b8d;
+}
+
+.diaporama-minoc h2 {
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.diaporama-minoc p {
+  font-size: 17px;
+}
+
+.cadre-diaporama {
+  max-width: 650px;
+  height: 350px;
+  margin: 20px auto;
+  overflow: hidden;
+  border: 4px solid #064b8d;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cadre-diaporama img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  .cadre-diaporama {
+    height: 240px;
+  }
+
+  .diaporama-minoc h2 {
+    font-size: 21px;
+  }
+}
+</style>
+
+<script>
+const photosMinoc = [
+  "images/1790015115821.jpg",
+  "images/Img 202260926-w.jpg"
+];
+
+let photoActuelle = 0;
+
+setInterval(function () {
+  const image = document.getElementById("photoMinoc");
+
+  image.style.opacity = 0;
+
+  setTimeout(function () {
+    photoActuelle = (photoActuelle + 1) % photosMinoc.length;
+    image.src = photosMinoc[photoActuelle];
+
+    image.onload = function () {
+      image.style.opacity = 1;
+    };
+  }, 1000);
+
+}, 5000);
+</script></body>
 </html>
