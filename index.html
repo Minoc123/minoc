@@ -1,635 +1,236 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta name="google-site-verification" content="Rc6bKVPailSPGXTE6Mk4fN7yKD6f108NSU_5DZ-epCo" />
-<meta charset="UTF-8">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MINOC - Ministère Notre Cité</title>
+    <title>MINOC - Ministère Notre Cité</title>
 
-<style>
-* {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-body <!-- BOUTONS MINOC -->
-<div style="text-align:center; margin:20px auto;">
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #222;
+            line-height: 1.6;
+        }
 
-  <button onclick="ouvrirPage('vision')">VISION</button>
+        header {
+            background-color: #003b80;
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+        }
 
-  <button onclick="ouvrirPage('mission')">MISSION</button>
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
 
-  <button onclick="ouvrirPage('objectifs')">OBJECTIFS</button>
+        nav {
+            background-color: #ffffff;
+            padding: 12px;
+            text-align: center;
+            border-bottom: 2px solid #003b80;
+        }
 
-  <button onclick="ouvrirPage('doctrine')">POINTS DOCTRINAUX</button>
+        nav button {
+            background-color: #003b80;
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            margin: 4px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-</div>
+        nav button:hover {
+            background-color: #0056b3;
+        }
 
-<script>
-function ouvrirPage(type) {
-  const textes = {
-    vision: `
-      <h1>VISION</h1>
-      <p>La Vision de l’église est d’apporter la bonne nouvelle,
-      la transformation spirituelle et morale de l’homme par les
-      enseignements bibliques, les enseignements moraux et des
-      formations afin de préparer l’église à l’éternité.</p>
-    `,
+        .accueil {
+            text-align: center;
+            padding: 25px 15px;
+        }
 
-    mission: `
-      <h1>MISSION</h1>
-      <p>La mission de Jésus-Christ est d’annoncer la bonne nouvelle,
-      de faire de toutes les nations des disciples, de les baptiser
-      et de leur enseigner à garder sa Parole.</p>
-      <p>MINOC a pour mission de préparer les disciples à la vie
-      dans notre cité céleste.</p>
-    `,
+        .photos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px;
+        }
 
-    objectifs: `
-      <h1>OBJECTIFS</h1>
-      <ol>
-        <li>Prêcher la parole de Dieu conformément aux principes bibliques et de la Nouvelle Alliance en Jésus-Christ.</li>
-        <li>Créer et développer des œuvres d’entraide pour les enfants, les jeunes et les familles démunies.</li>
-        <li>Mettre sur pied des écoles de formation missionnaire et spécialisée.</li>
-        <li>Produire des brochures, des livres, des CD audio et vidéo pour l’évangélisation.</li>
-        <li>Promouvoir l’alphabétisation et la formation professionnelle.</li>
-        <li>Créer des médias spécialisés pour ses causes.</li>
-        <li>Célébrer le culte.</li>
-        <li>Améliorer le comportement de l’homme envers son prochain dans la société.</li>
-        <li>Sensibiliser l’homme à protéger son environnement et à se préparer à la vie d’au-delà.</li>
-      </ol>
-    `,
+        .photos img {
+            width: 100%;
+            max-width: 350px;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
 
-    doctrine: `
-      <h1>POINTS DOCTRINAUX</h1>
-      <ol>
-        <li>Nous croyons à la Divinité de Jésus-Christ.</li>
-        <li>Nous croyons au baptême d’eau par immersion au nom de Jésus-Christ et à la nouvelle naissance (Actes 2:38).</li>
-        <li>Nous croyons au baptême du Saint-Esprit et à l’opération des dons spirituels dans l’Église.</li>
-        <li>Nous croyons au paiement de la dîme et aux offrandes.</li>
-      </ol>
-    `
-  };
+        main {
+            max-width: 900px;
+            margin: auto;
+            padding: 15px;
+        }
 
-  const fenetre = window.open("", "_blank");
+        section {
+            display: none;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #003b80;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
 
-  if (fenetre) {
-    fenetre.document.write(`
-      <!DOCTYPE html>
-      <html lang="fr">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MINOC</title>
-      </head>
-      <body style="font-family:Arial,sans-serif; padding:20px; line-height:1.7;">
-        ${textes[type]}
-      </body>
-      </html>
-    `);
-    fenetre.document.close();
-  } else {
-    alert("Autorisez l’ouverture des fenêtres dans votre navigateur.");
-  }
-}
-</script>{
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f7fa;
-    color: #183153;
-    line-height: 1.7;
-}
+        section.active {
+            display: block;
+        }
 
-header {
-    background: #ffffff;
-    color: #183153;
-    text-align: center;
-    padding: 22px 12px;
-}
+        h2 {
+            color: #003b80;
+        }
 
-header h1 {
-    margin: 0;
-    font-size: 30px;
-}
+        .infos {
+            background-color: #f0f6ff;
+            padding: 15px;
+            border-radius: 8px;
+        }
 
-header p {
-    margin: 5px 0;
-}
-
-nav {
-    background: #183153;
-    padding: 12px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-nav a {
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    background: #315b91;
-    border-radius: 5px;
-}
-
-.banniere {
-    background: #183153;
-    color: white;
-    overflow: hidden;
-    padding: 12px 0;
-    white-space: nowrap;
-}
-
-.defilement {
-    display: inline-block;
-    padding-left: 100%;
-    animation: defiler 22s linear infinite;
-}
-
-@keyframes defiler {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
-}
-
-.accueil {
-    text-align: center;
-    padding: 35px 15px;
-    background: white;
-}
-
-.accueil h2 {
-    font-size: 28px;
-}
-
-.diaporama {
-    max-width: 650px;
-    margin: 20px auto;
-    padding: 10px;
-}
-
-.diaporama img {
-    width: 100%;
-    height: 320px;
-    object-fit: contain;
-    background: #ffffff;
-    border-radius: 12px;
-}
-
-section {
-    max-width: 1000px;
-    margin: 25px auto;
-    padding: 25px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px #00000010;
-}
-
-h2 {
-    color: #183153;
-    border-bottom: 2px solid #183153;
-    padding-bottom: 8px;
-}
-
-.statistiques {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 25px;
-}
-
-.statistique {
-    background: #183153;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    flex: 1 1 180px;
-}
-
-.statistique strong {
-    display: block;
-    font-size: 32px;
-}
-
-.boutons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin: 25px 0;
-}
-
-.boutons a {
-    background: #183153;
-    color: white;
-    padding: 12px 18px;
-    text-decoration: none;
-    border-radius: 7px;
-}
-
-.boutons a:hover {
-    background: #315b91;
-}
-
-li {
-    margin-bottom: 12px;
-}
-
-footer {
-    background: #183153;
-    color: white;
-    text-align: center;
-    padding: 25px 12px;
-}
-
-footer a {
-    color: white;
-}
-
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 24px;
-    }
-
-    nav a {
-        padding: 7px;
-        font-size: 14px;
-    }
-
-    section {
-        margin: 15px 10px;
-        padding: 18px;
-    }
-
-    .diaporama img {
-        height: 240px;
-    }
-}
-</style>
+        footer {
+            background-color: #003b80;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
     <h1>MINOC</h1>
-    <p><strong>Ministère Notre Cité</strong></p>
-    <p>Pasteur MANUEL ILUNGA</p>
-    <p>Kinshasa, RDC</p>
-    <p>18ème rue Limete/industriel, Boulevard Lumumba</p>
+    <p>Ministère Notre Cité</p>
+    <p>Pasteur Manuel Ilunga</p>
 </header>
 
 <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#mission">Mission</a>
-    <a href="#vision">Vision</a>
-    <a href="#objectifs">Objectifs</a>
-    <a href="#doctrine">Doctrine</a>
-    <a href="#programmes">Programmes</a>
-    <a href="#contact">Contact</a>
+    <button onclick="afficher('accueil')">Accueil</button>
+    <button onclick="afficher('vision')">Vision</button>
+    <button onclick="afficher('mission')">Mission</button>
+    <button onclick="afficher('objectifs')">Objectifs</button>
+    <button onclick="afficher('doctrine')">Points doctrinaux</button>
+    <button onclick="afficher('contact')">Contact</button>
 </nav>
 
-<div class="banniere">
-    <div class="defilement">
-        Bienvenue au MINOC — Ministère Notre Cité — Notre cité à nous est dans les cieux !
+<div id="accueil" class="accueil">
+    <h2>Bienvenue au MINOC</h2>
+    <p>
+        Que la paix et la grâce de notre Seigneur Jésus-Christ
+        soient avec vous.
+    </p>
+
+    <div class="photos">
+        <img src="1790015115821.jpg"
+             alt="Ministère Notre Cité">
+
+        <img src="Img%2020260926-w.jpg"
+             alt="Activités du ministère">
     </div>
 </div>
 
-<div class="accueil" id="accueil">
+<main>
 
-    <h2>Bienvenue à l'Église MINOC</h2>
+    <section id="vision">
+        <h2>Notre vision</h2>
+        <p>
+            La vision de l'église est d'apporter la bonne nouvelle,
+            la transformation spirituelle et morale de l'homme par
+            les enseignements bibliques, les enseignements moraux
+            et des formations afin de préparer l'église à l'éternité.
+        </p>
+    </section>
 
-    <p>
-        Une église qui a reçu la Mission spécifique de préparer
-        les disciples pour la vie dans cette cité.
-    </p>
+    <section id="mission">
+        <h2>Notre mission</h2>
+        <p>
+            Annoncer la bonne nouvelle de Jésus-Christ et contribuer
+            à la transformation spirituelle et morale de l'homme.
+        </p>
+    </section>
 
-    <div class="diaporama">
-        <img id="photoDiaporama"
-             src="images/1790015115821.jpg"
-             alt="Présentation du Ministère Notre Cité">
-    </div>
+    <section id="objectifs">
+        <h2>Nos objectifs</h2>
+        <p>Enseignement biblique et formation spirituelle.</p>
+        <p>Accompagnement des enfants et des jeunes.</p>
+        <p>Évangélisation et formation professionnelle.</p>
+    </section>
 
-    <div class="boutons">
-        <a href="#mission">Notre mission</a>
-        <a href="#vision">Notre vision</a>
-        <a href="#objectifs">Nos objectifs</a>
-        <a href="#doctrine">Nos points doctrinaux</a>
-    </div>
+    <section id="doctrine">
+        <h2>Points doctrinaux</h2>
+        <p>
+            Cette rubrique présentera les enseignements bibliques
+            et les fondements doctrinaux du ministère.
+        </p>
+    </section>
 
-</div>
+    <section id="contact">
+        <h2>Nous contacter</h2>
 
-<section>
-    <h2>MINOC en chiffres</h2>
-
-    <div class="statistiques">
-        <div class="statistique">
-            <strong>9</strong>
-            Objectifs de l'Église
+        <div class="infos">
+            <p><strong>Ministère :</strong> Notre Cité (MINOC)</p>
+            <p><strong>Pasteur :</strong> Manuel Ilunga</p>
+            <p><strong>Ville :</strong> Kinshasa, RDC</p>
+            <p><strong>Adresse :</strong> 18ème rue, Limete Industriel,
+                Boulevard Lumumba.</p>
         </div>
 
-        <div class="statistique">
-            <strong>4</strong>
-            Points doctrinaux reçus
-        </div>
+        <h2>Horaires des cultes</h2>
 
-        <div class="statistique">
-            <strong>4</strong>
-            Jours d'activités hebdomadaires
-        </div>
-    </div>
-</section>
+        <p>Mercredi : Culte d'enseignement, 17h30–19h30.</p>
+        <p>Jeudi : Culte des mamans de la cité, 16h–18h.</p>
+        <p>Vendredi : Veillée de prière.</p>
+        <p>Samedi : Culte de la jeunesse, 16h–18h.</p>
+    </section>
 
-<section id="mission">
-    <h2>La mission de l'Église</h2>
-
-    <h3>Prédication : « NOTRE CITÉ »</h3>
-
-    <p><strong>Texte :</strong> Math : 28:19</p>
-    <p><strong>Philip. 3:20-21</strong></p>
-
-    <blockquote>
-        «Mais notre cité à nous est dans les cieux, d’où nous
-        attendons aussi comme Sauveur le Seigneur Jésus-Christ,
-        21 qui transformera le corps de notre humiliation, en le
-        rendant semblable au corps de sa gloire, par le pouvoir
-        qu’il a de s’assujettir toutes choses.»
-    </blockquote>
-
-    <p>
-        La mission de l'église donnée par Jésus Christ est l'annoncer
-        la bonne nouvelle, donc de faire des nations des disciples
-        de Jésus-Christ, de les baptiser et de leur enseigner à garder
-        sa Parole.
-    </p>
-
-    <p>
-        A cette mission la parole de Dieu a attaché une autre promesse,
-        « la cité» qui est la notre, cette cité est une bourgeoisie,
-        une ville de paix et bonheur réservée à ceux qui vont croire
-        au Seigneur Jésus Christ; Minoc est une église qui a reçu la
-        Mission spécifique de préparer les disciples pour la vie dans
-        cette cité.
-    </p>
-
-    <p>
-        Notre vie sur cette terre ne doit être une finalité, la bible
-        ne demande de chercher premièrement le royaume de Dieu et le
-        reste nous sera donné comme bonus.
-    </p>
-</section>
-
-<section id="vision">
-    <h2>La vision de l'Église</h2>
-
-    <p>
-        La Vision de l'église est d'apporter la bonne nouvelle,
-        la transformation spirituelle et morale de l'homme par les
-        enseignements bibliques, les enseignements moraux et des
-        formations afin de préparer l'église à l'éternité.
-    </p>
-</section>
-
-<section id="objectifs">
-    <h2>Les objectifs de l'église</h2>
-
-    <ol>
-        <li>Prêcher la parole de Dieu conformément aux principes
-        bibliques et de la Nouvelle Alliance en Jésus-Christ,</li>
-
-        <li>Créer, gérer, animer, et développer des œuvres d'entraide
-        et d'assistance fondées sur les principes bibliques tant pour
-        les enfants, les jeunes et les familles démunies ;</li>
-
-        <li>Mettre sur pied des écoles de formation missionnaire et
-        spécialisée pour contribuer au developpement ;</li>
-
-        <li>Produire de brochures, des livres, CD audio et vidéo
-        pour l'évangélisation ;</li>
-
-        <li>Promouvoir l'alphabétisation et la formation professionnelle
-        en milieu chrétien pour une meilleure réinsertion ;</li>
-
-        <li>Créer les médias spécialisés pour ses causes ;</li>
-
-        <li>Célébrer le culte ;</li>
-
-        <li>Créer les conditions cadre de vie visant l’assainissement
-        de l’état spirituel de l’homme afin d’améliorer son comportement
-        vis-à-vis de son prochain dans la société ;</li>
-
-        <li>Interpeler la conscience de l’homme pour la protection de
-        son environnement et sa préparation pour la vie d’au-delà</li>
-    </ol>
-</section>
-
-<section id="doctrine">
-    <h2>Les points doctrinaux de l'église</h2>
-
-    <ol>
-        <li>Nous croyons à la Divinité de Jésus christ ;</li>
-
-        <li>Nous croyons au Baptême d’eau par immersion au nom de Jésus
-        christ et la nouvelle naissance (Actes 2 :38);</li>
-
-        <li>Nous croyons au Baptême du saint esprit et l’opération
-        de dons spirituels dans l’église ;</li>
-
-        <li>Nous croyons au paiement de la dime et les offrandes ;</li>
-    </ol>
-
-    <p>
-        Les autres points doctrinaux seront ajoutés lorsque leur
-        texte complet sera disponible.
-    </p>
-</section>
-
-<section id="programmes">
-    <h2>Les programmes de l'Église</h2>
-
-    <ul>
-        <li><strong>Mercredi :</strong> culte d’enseignement
-        de 17h30 à 19h30.</li>
-
-        <li><strong>Jeudi :</strong> culte des mamans de la cité
-        de 16h à 18h.</li>
-
-        <li><strong>Vendredi :</strong> veillée de prière la nuit.</li>
-
-        <li><strong>Samedi :</strong> culte de la jeunesse de la cité
-        de 16h à 18h.</li>
-    </ul>
-</section>
-
-<section id="contact">
-    <h2>Contact et adresse</h2>
-
-    <p><strong>Église :</strong> MINOC — Ministère Notre Cité</p>
-    <p><strong>Pasteur :</strong> MANUEL ILUNGA</p>
-    <p><strong>Ville :</strong> Kinshasa, RDC</p>
-    <p><strong>Adresse :</strong> 18ème rue Limete/industriel,
-    Boulevard Lumumba</p>
-</section>
+</main>
 
 <footer>
-    <p><strong>MINOC — Ministère Notre Cité</strong></p>
-    <p>Notre cité à nous est dans les cieux.</p>
-    <p>© MINOC — Tous droits réservés.</p>
+    <p>MINOC - Ministère Notre Cité</p>
+    <p>Kinshasa, République démocratique du Congo</p>
 </footer>
 
 <script>
-const photos = [
-    "images/1790015115821.jpg",
-    "images/Img 202260926-w.jpg"
-];
+    function afficher(id) {
+        document.querySelectorAll('main section').forEach(section => {
+            section.classList.remove('active');
+        });
 
-let indexPhoto = 0;
-const diaporama = document.getElementById("photoDiaporama");
+        const section = document.getElementById(id);
 
-function changerPhoto() {
-    indexPhoto = (indexPhoto + 1) % photos.length;
+        if (section && id !== 'accueil') {
+            section.classList.add('active');
+        }
 
-    const nouvellePhoto = new Image();
-
-    nouvellePhoto.onload = function() {
-        diaporama.src = photos[indexPhoto];
-    };
-
-    nouvellePhoto.onerror = function() {
-        indexPhoto = (indexPhoto + 1) % photos.length;
-    };
-
-    nouvellePhoto.src = photos[indexPhoto];
-}
-
-setInterval(changerPhoto, 4000);
+        if (id === 'accueil') {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else if (section) {
+            section.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
 </script>
 
-<!-- DIAPORAMA MINOC -->
-<section class="diaporama-minoc">
-  <h2>Ministère Notre Cité</h2>
-  <p>Bienvenue au MINOC</p>
-
-  <div class="cadre-diaporama">
-    <img
-      id="photoMinoc"
-      src="images/1790015115821.jpg"
-      alt="Ministère Notre Cité"
-    >
-  </div>
-</section>
-
-<style>
-.diaporama-minoc {
-  text-align: center;
-  padding: 20px 10px;
-  background: white;
-  color: #064b8d;
-}
-
-.diaporama-minoc h2 {
-  font-size: 25px;
-  margin-bottom: 8px;
-}
-
-.diaporama-minoc p {
-  font-size: 17px;
-}
-
-.cadre-diaporama {
-  max-width: 650px;
-  height: 350px;
-  margin: 20px auto;
-  overflow: hidden;
-  border: 4px solid #064b8d;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.cadre-diaporama img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 1s ease-in-out;
-}
-
-@media (max-width: 600px) {
-  .cadre-diaporama {
-    height: 240px;
-  }
-
-  .diaporama-minoc h2 {
-    font-size: 21px;
-  }
-}
-</style>
-
-<script>
-const photosMinoc = [
-  "images/1790015115821.jpg",
-  "images/Img 202260926-w.jpg"
-];
-
-let photoActuelle = 0;
-
-setInterval(function () {
-  const image = document.getElementById("photoMinoc");
-
-  image.style.opacity = 0;
-
-  setTimeout(function () {
-    photoActuelle = (photoActuelle + 1) % photosMinoc.length;
-    image.src = photosMinoc[photoActuelle];
-
-    image.onload = function () {
-      image.style.opacity = 1;
-    };
-  }, 1000);
-
-}, 5000);
-</script><!-- DIAPORAMA PHOTOS MINOC -->
-<div class="minoc-diaporama">
-  <img src="1790015115821.jpg" alt="Ministère Notre Cité" class="photo-minoc active">
-  <img src="Img%2020260926-w.jpg" alt="Ministère Notre Cité" class="photo-minoc">
-</div>
-
-<style>
-.minoc-diaporama {
-  width: 100%;
-  max-width: 650px;
-  margin: 20px auto;
-  text-align: center;
-}
-
-.photo-minoc {
-  display: none;
-  width: 100%;
-  max-height: 400px;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-.photo-minoc.active {
-  display: block;
-}
-</style>
-
-<script>
-const photosMinoc = document.querySelectorAll(".photo-minoc");
-let indexMinoc = 0;
-
-setInterval(function () {
-  photosMinoc[indexMinoc].classList.remove("active");
-  indexMinoc = (indexMinoc + 1) % photosMinoc.length;
-  photosMinoc[indexMinoc].classList.add("active");
-}, 3000);
-</script></body>
+</body>
 </html>
