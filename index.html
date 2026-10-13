@@ -14,7 +14,87 @@
     scroll-behavior: smooth;
 }
 
-body {
+body <!-- BOUTONS MINOC -->
+<div style="text-align:center; margin:20px auto;">
+
+  <button onclick="ouvrirPage('vision')">VISION</button>
+
+  <button onclick="ouvrirPage('mission')">MISSION</button>
+
+  <button onclick="ouvrirPage('objectifs')">OBJECTIFS</button>
+
+  <button onclick="ouvrirPage('doctrine')">POINTS DOCTRINAUX</button>
+
+</div>
+
+<script>
+function ouvrirPage(type) {
+  const textes = {
+    vision: `
+      <h1>VISION</h1>
+      <p>La Vision de l’église est d’apporter la bonne nouvelle,
+      la transformation spirituelle et morale de l’homme par les
+      enseignements bibliques, les enseignements moraux et des
+      formations afin de préparer l’église à l’éternité.</p>
+    `,
+
+    mission: `
+      <h1>MISSION</h1>
+      <p>La mission de Jésus-Christ est d’annoncer la bonne nouvelle,
+      de faire de toutes les nations des disciples, de les baptiser
+      et de leur enseigner à garder sa Parole.</p>
+      <p>MINOC a pour mission de préparer les disciples à la vie
+      dans notre cité céleste.</p>
+    `,
+
+    objectifs: `
+      <h1>OBJECTIFS</h1>
+      <ol>
+        <li>Prêcher la parole de Dieu conformément aux principes bibliques et de la Nouvelle Alliance en Jésus-Christ.</li>
+        <li>Créer et développer des œuvres d’entraide pour les enfants, les jeunes et les familles démunies.</li>
+        <li>Mettre sur pied des écoles de formation missionnaire et spécialisée.</li>
+        <li>Produire des brochures, des livres, des CD audio et vidéo pour l’évangélisation.</li>
+        <li>Promouvoir l’alphabétisation et la formation professionnelle.</li>
+        <li>Créer des médias spécialisés pour ses causes.</li>
+        <li>Célébrer le culte.</li>
+        <li>Améliorer le comportement de l’homme envers son prochain dans la société.</li>
+        <li>Sensibiliser l’homme à protéger son environnement et à se préparer à la vie d’au-delà.</li>
+      </ol>
+    `,
+
+    doctrine: `
+      <h1>POINTS DOCTRINAUX</h1>
+      <ol>
+        <li>Nous croyons à la Divinité de Jésus-Christ.</li>
+        <li>Nous croyons au baptême d’eau par immersion au nom de Jésus-Christ et à la nouvelle naissance (Actes 2:38).</li>
+        <li>Nous croyons au baptême du Saint-Esprit et à l’opération des dons spirituels dans l’Église.</li>
+        <li>Nous croyons au paiement de la dîme et aux offrandes.</li>
+      </ol>
+    `
+  };
+
+  const fenetre = window.open("", "_blank");
+
+  if (fenetre) {
+    fenetre.document.write(`
+      <!DOCTYPE html>
+      <html lang="fr">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MINOC</title>
+      </head>
+      <body style="font-family:Arial,sans-serif; padding:20px; line-height:1.7;">
+        ${textes[type]}
+      </body>
+      </html>
+    `);
+    fenetre.document.close();
+  } else {
+    alert("Autorisez l’ouverture des fenêtres dans votre navigateur.");
+  }
+}
+</script>{
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f5f7fa;
