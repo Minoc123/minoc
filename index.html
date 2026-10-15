@@ -3,150 +3,184 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>MINOC - Ministère Notre Cité</title>
 
 <style>
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f7fa;
-    color: #183153;
-    line-height: 1.7;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  color: #183153;
+  line-height: 1.7;
 }
 
 header {
-    background: white;
-    text-align: center;
-    padding: 15px;
+  background: #183153;
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
 }
 
 .logo {
-    width: 100px;
-    height: auto;
-    object-fit: contain;
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 
-h1, h2 {
-    color: #183153;
+header h1 {
+  font-size: 30px;
+}
+
+header p {
+  font-size: 17px;
 }
 
 nav {
-    background: #183153;
-    padding: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
+  background: white;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  box-shadow: 0 2px 8px #00000018;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 14px;
-    border-radius: 5px;
-    font-weight: bold;
+  background: #183153;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 nav a:hover {
-    background: white;
-    color: #183153;
+  background: #2c5685;
 }
 
-.banniere {
-    min-height: 400px;
-    background:
-      linear-gradient(rgba(10, 30, 60, 0.55),
-                      rgba(10, 30, 60, 0.65)),
-      url("pasteur%20manuel.jpg") center 30% / cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    padding: 25px;
+.hero {
+  min-height: 420px;
+  background: linear-gradient(#18315388, #183153aa),
+    url("manuel.jpg") center 30% / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 15px;
+  color: white;
 }
 
-.banniere h1 {
-    color: white;
-    font-size: clamp(26px, 5vw, 42px);
+.hero h2 {
+  font-size: clamp(28px, 5vw, 44px);
+  margin-bottom: 12px;
 }
 
-.banniere p {
-    font-size: 20px;
+.hero p {
+  font-size: 19px;
 }
 
 main {
-    max-width: 1000px;
-    margin: 25px auto;
-    padding: 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px 15px;
 }
 
-.carte {
-    background: white;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+section {
+  background: white;
+  margin: 22px 0;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px #18315312;
+}
+
+h2, h3 {
+  color: #183153;
+  margin-bottom: 12px;
+}
+
+.pasteur {
+  text-align: center;
+}
+
+.pasteur img {
+  width: 220px;
+  max-width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 10px;
+  border: 4px solid #183153;
+  margin-bottom: 12px;
 }
 
 .boutons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
 }
 
-.bouton {
-    display: inline-block;
-    background: #183153;
-    color: white;
-    padding: 12px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
+.boutons a {
+  display: inline-block;
+  background: #183153;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 7px;
+  font-weight: bold;
 }
 
-.bouton:hover {
-    background: #294d7a;
+.boutons a:hover {
+  background: #2c5685;
 }
 
-.pasteur-photo {
-    display: block;
-    max-width: 100%;
-    width: 300px;
-    max-height: 380px;
-    object-fit: contain;
-    margin: 20px auto;
-    border-radius: 8px;
+.horaires li {
+  margin-left: 22px;
+  margin-bottom: 8px;
 }
 
 footer {
-    background: #183153;
-    color: white;
-    text-align: center;
-    padding: 20px;
+  background: #183153;
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+  margin-top: 30px;
 }
 
 footer a {
-    color: white;
+  color: white;
 }
 
 @media (max-width: 600px) {
-    .banniere {
-        min-height: 320px;
-    }
+  header h1 {
+    font-size: 24px;
+  }
 
-    nav a {
-        padding: 8px;
-        font-size: 14px;
-    }
+  nav a {
+    padding: 9px 12px;
+    font-size: 14px;
+  }
+
+  section {
+    padding: 18px;
+  }
+
+  .hero {
+    min-height: 350px;
+  }
 }
 </style>
 </head>
@@ -154,205 +188,79 @@ footer a {
 <body>
 
 <header>
-    <img src="minoc.jpg" alt="Logo MINOC" class="logo">
-    <h2>MINOC - Ministère Notre Cité</h2>
-    <p>Pasteur MANUEL ILUNGA | Kinshasa, RDC</p>
+  <img src="minoc.jpg" alt="Logo MINOC" class="logo">
+  <h1>MINOC - MINISTÈRE NOTRE CITÉ</h1>
+  <p>Une église préparée pour l'éternité</p>
 </header>
 
 <nav>
-    <a href="index.html">Accueil</a>
-    <a href="index.html?page=apropos" target="_blank">À propos</a>
-    <a href="index.html?page=vision" target="_blank">Vision</a>
-    <a href="index.html?page=mission" target="_blank">Mission</a>
-    <a href="index.html?page=objectifs" target="_blank">Objectifs</a>
-    <a href="index.html?page=doctrine" target="_blank">Points doctrinaux</a>
-    <a href="index.html?page=cultes" target="_blank">Nos cultes</a>
-    <a href="index.html?page=pasteur" target="_blank">Notre pasteur</a>
-    <a href="index.html?page=contact" target="_blank">Contact</a>
+  <a href="index.html">Accueil</a>
+  <a href="vision.html">Vision</a>
+  <a href="mission.html">Mission</a>
+  <a href="objectifs.html">Objectifs</a>
+  <a href="doctrine.html">Points doctrinaux</a>
 </nav>
 
-<section class="banniere" id="banniere">
-    <h1>BIENVENUE À L'ÉGLISE MINOC</h1>
+<div class="hero">
+  <div>
+    <h2>BIENVENUE À L'ÉGLISE MINOC</h2>
     <p>Ministère Notre Cité</p>
-    <p>Une cité de paix et de bonheur en Jésus-Christ</p>
-</section>
+    <p>La Parole de Dieu, la transformation et la préparation à l'éternité.</p>
+  </div>
+</div>
 
-<main id="contenu">
+<main>
 
-    <section class="carte">
-        <h2>Bienvenue chez MINOC</h2>
-        <p>
-            Bienvenue au Ministère Notre Cité.
-            Découvrez notre vision, notre mission,
-            nos objectifs et nos enseignements bibliques.
-        </p>
+  <section class="pasteur">
+    <img src="manuel.jpg" alt="Pasteur Manuel Ilunga">
+    <h2>Pasteur MANUEL ILUNGA</h2>
+    <p>Ministère Notre Cité - MINOC</p>
+    <p>Kinshasa, République démocratique du Congo</p>
+  </section>
 
-        <div class="boutons">
-            <a class="bouton" href="index.html?page=vision" target="_blank">Découvrir notre vision</a>
-            <a class="bouton" href="index.html?page=mission" target="_blank">Notre mission</a>
-            <a class="bouton" href="index.html?page=objectifs" target="_blank">Nos objectifs</a>
-            <a class="bouton" href="index.html?page=doctrine" target="_blank">Nos doctrines</a>
-        </div>
-    </section>
+  <section>
+    <h2>Bienvenue dans notre ministère</h2>
+    <p>
+      Le Ministère Notre Cité vous accueille pour grandir dans la foi,
+      découvrir la Parole de Dieu et avancer dans une vie de transformation
+      spirituelle et morale.
+    </p>
+  </section>
 
-    <section class="carte">
-        <h2>Notre pasteur</h2>
-        <img src="pasteur%20manuel.jpg"
-             alt="Pasteur Manuel Ilunga"
-             class="pasteur-photo">
-        <p style="text-align:center">
-            <strong>Pasteur MANUEL ILUNGA</strong><br>
-            Ministère Notre Cité — Kinshasa, RDC
-        </p>
-        <div style="text-align:center">
-            <a class="bouton" href="index.html?page=pasteur" target="_blank">
-                Découvrir notre pasteur
-            </a>
-        </div>
-    </section>
+  <section>
+    <h2>Découvrez MINOC</h2>
+    <p>Consultez les différentes rubriques de notre ministère :</p>
+    <div class="boutons">
+      <a href="vision.html">Découvrir notre Vision</a>
+      <a href="mission.html">Découvrir notre Mission</a>
+      <a href="objectifs.html">Nos Objectifs</a>
+      <a href="doctrine.html">Nos Points doctrinaux</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Nos cultes et réunions</h2>
+    <ul class="horaires">
+      <li><strong>Mercredi :</strong> Culte d'enseignement, de 17h30 à 19h30.</li>
+      <li><strong>Jeudi :</strong> Culte des mamans de la cité, de 16h à 18h.</li>
+      <li><strong>Vendredi :</strong> Veillée de prière la nuit.</li>
+      <li><strong>Samedi :</strong> Culte de la jeunesse de la cité, de 16h à 18h.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Nous trouver</h2>
+    <p><strong>Adresse :</strong> 18ème rue, Limete/Industriel, Boulevard Lumumba, Kinshasa, RDC.</p>
+  </section>
 
 </main>
 
 <footer>
-    <p>MINOC - Ministère Notre Cité</p>
-    <p>18ème rue, Limete Industriel, Boulevard Lumumba, Kinshasa, RDC</p>
-    <a href="index.html">Retour à l'accueil</a>
+  <p><strong>MINOC - Ministère Notre Cité</strong></p>
+  <p>Pasteur Manuel Ilunga</p>
+  <p>Kinshasa, République démocratique du Congo</p>
+  <p>© MINOC - Tous droits réservés</p>
 </footer>
 
-<script>
-const pages = {
-    apropos: {
-        titre: "À propos de MINOC",
-        texte: `
-            <p>Bienvenue au Ministère Notre Cité (MINOC).</p>
-            <p>Pasteur MANUEL ILUNGA</p>
-            <p>Kinshasa, République démocratique du Congo.</p>
-            <p>Adresse : 18ème rue, Limete Industriel,
-            Boulevard Lumumba.</p>
-        `
-    },
-
-    vision: {
-        titre: "Notre Vision",
-        texte: `
-            <p>La Vision de l’église est d’apporter la bonne nouvelle,
-            la transformation spirituelle et morale de l’homme par les
-            enseignements bibliques, les enseignements moraux et des
-            formations afin de préparer l’église à l’éternité.</p>
-        `
-    },
-
-    mission: {
-        titre: "Notre Mission — NOTRE CITÉ",
-        texte: `
-            <p><strong>Textes bibliques :</strong> Matthieu 28:19 ;
-            Philippiens 3:20-21.</p>
-            <p>Annoncer la bonne nouvelle, faire des nations des disciples,
-            les baptiser et leur enseigner à garder la Parole.</p>
-            <p>La mission spécifique de MINOC est de préparer des disciples
-            pour la cité, une ville de paix et de bonheur pour ceux qui
-            croient en Jésus-Christ.</p>
-        `
-    },
-
-    objectifs: {
-        titre: "Nos Objectifs",
-        texte: `
-            <ul>
-                <li>Prêcher la Parole de Dieu et la Nouvelle Alliance.</li>
-                <li>Apporter une aide aux enfants, aux jeunes et aux familles
-                défavorisées.</li>
-                <li>Organiser des formations missionnaires et spécialisées.</li>
-                <li>Produire des brochures, livres et supports audio-visuels
-                pour l'évangélisation.</li>
-                <li>Encourager l'alphabétisation et la formation professionnelle.</li>
-                <li>Utiliser les médias pour annoncer l'Évangile.</li>
-                <li>Promouvoir le culte, la conduite spirituelle et sociale.</li>
-                <li>Développer la conscience environnementale et préparer
-                les croyants à l'éternité.</li>
-            </ul>
-        `
-    },
-
-    doctrine: {
-        titre: "Nos Points Doctrinaux",
-        texte: `
-            <ul>
-                <li>La divinité de Jésus-Christ.</li>
-                <li>Le baptême d'eau par immersion au nom de Jésus-Christ
-                et la nouvelle naissance (Actes 2:38).</li>
-                <li>Le baptême du Saint-Esprit et les dons spirituels.</li>
-                <li>La dîme et les offrandes.</li>
-                <li>Les cinq ministères : apôtres, prophètes,
-                évangélistes, pasteurs et docteurs.</li>
-                <li>La grâce.</li>
-                <li>La consécration des mariages.</li>
-                <li>La Sainte Cène.</li>
-                <li>La résurrection des morts et l'enlèvement universel
-                de l'Église.</li>
-                <li>La souveraineté de Dieu.</li>
-            </ul>
-        `
-    },
-
-    cultes: {
-        titre: "Nos Cultes",
-        texte: `
-            <p><strong>Mercredi :</strong> Culte d'enseignement,
-            de 17h30 à 19h30.</p>
-            <p><strong>Jeudi :</strong> Culte des mamans de la cité,
-            de 16h à 18h.</p>
-            <p><strong>Vendredi :</strong> Veillée de prière la nuit.</p>
-            <p><strong>Samedi :</strong> Culte de la jeunesse de la cité,
-            de 16h à 18h.</p>
-        `
-    },
-
-    pasteur: {
-        titre: "Notre Pasteur",
-        texte: `
-            <img src="pasteur%20manuel.jpg"
-                 alt="Photo réelle du Pasteur Manuel Ilunga"
-                 class="pasteur-photo">
-            <h3 style="text-align:center">Pasteur MANUEL ILUNGA</h3>
-            <p style="text-align:center">
-            Ministère Notre Cité — Kinshasa, RDC.
-            </p>
-        `
-    },
-
-    contact: {
-        titre: "Nous Contacter",
-        texte: `
-            <p><strong>Église :</strong> Ministère Notre Cité (MINOC)</p>
-            <p><strong>Pasteur :</strong> Manuel Ilunga</p>
-            <p><strong>Adresse :</strong> 18ème rue, Limete Industriel,
-            Boulevard Lumumba, Kinshasa, RDC.</p>
-        `
-    }
-};
-
-const params = new URLSearchParams(window.location.search);
-const nomPage = params.get("page");
-
-if (nomPage && pages[nomPage]) {
-    const page = pages[nomPage];
-
-    document.title = page.titre + " - MINOC";
-
-    document.getElementById("banniere").style.display = "none";
-
-    document.getElementById("contenu").innerHTML = `
-        <section class="carte">
-            <h1>${page.titre}</h1>
-            ${page.texte}
-            <div class="boutons">
-                <a class="bouton" href="index.html">Retour à l'accueil</a>
-            </div>
-        </section>
-    `;
-}
-</script>
-
 </body>
-    </html>
+      </html>
