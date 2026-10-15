@@ -1,798 +1,822 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MINOC - Ministère Notre Cité</title>
-<meta name="description" content="Ministère Notre Cité, MINOC, Pasteur Manuel Ilunga, Kinshasa, RDC.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-:root {
-    --bleu: #183153;
-    --blanc: #ffffff;
-    --fond: #f5f7fa;
-}
+    <meta name="description" content="Ministère Notre Cité (MINOC), dirigé par le Pasteur Manuel Ilunga à Kinshasa, RDC. Découvrez notre vision, notre mission, nos objectifs et nos horaires de cultes.">
 
-* {
-    box-sizing: border-box;
-}
+    <meta name="theme-color" content="#183153">
 
-html {
-    scroll-behavior: smooth;
-}
+    <title>MINOC | Ministère Notre Cité</title>
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--fond);
-    color: var(--bleu);
-    line-height: 1.8;
-}
+    <style>
+        /* ==========================
+           COULEURS ORIGINALES BLEU-BLANC
+        ========================== */
 
-header {
-    background: var(--blanc);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    padding: 12px;
-    border-bottom: 3px solid var(--bleu);
-}
+        :root {
+            --bleu: #183153;
+            --bleu-fonce: #10233d;
+            --bleu-clair: #eaf2fb;
+            --blanc: #ffffff;
+            --fond: #f5f7fa;
+            --texte: #183153;
+            --ombre: 0 8px 25px rgba(24, 49, 83, 0.12);
+            --arrondi: 16px;
+        }
 
-.logo {
-    width: 65px;
-    height: 65px;
-    object-fit: contain;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-header h1 {
-    font-size: 22px;
-    margin: 0;
-    line-height: 1.4;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-header p {
-    margin: 0;
-    font-size: 14px;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--fond);
+            color: var(--texte);
+            line-height: 1.7;
+        }
 
-nav {
-    background: var(--bleu);
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+        img {
+            max-width: 100%;
+            display: block;
+        }
 
-nav button {
-    border: 0;
-    background: transparent;
-    color: var(--blanc);
-    font-size: 14px;
-    font-weight: bold;
-    padding: 12px;
-    cursor: pointer;
-}
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
 
-nav button:hover,
-nav button:focus {
-    background: var(--blanc);
-    color: var(--bleu);
-}
+        a {
+            color: inherit;
+        }
 
-/* BANDE DÉFILANTE */
+        /* ==========================
+           BANDE DE DÉFILEMENT
+        ========================== */
 
-.bande {
-    background: var(--blanc);
-    color: var(--bleu);
-    border-bottom: 2px solid var(--bleu);
-    padding: 10px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    font-weight: bold;
-}
+        .bande-defilante {
+            background: var(--bleu-fonce);
+            color: var(--blanc);
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
 
-.bande span {
-    display: inline-block;
-    padding-left: 100%;
-    animation: defiler 24s linear infinite;
-}
+        .bande-defilante div {
+            display: inline-block;
+            padding-left: 100%;
+            animation: defilement 24s linear infinite;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
-@keyframes defiler {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
+        @keyframes defilement {
+            0% {
+                transform: translateX(0);
+            }
 
-/* ACCUEIL */
+            100% {
+                transform: translateX(-100%);
+            }
+        }
 
-.hero {
-    min-height: 360px;
-    padding: 55px 20px;
-    color: var(--blanc);
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:
-        linear-gradient(rgba(10, 30, 55, .76),
-                        rgba(10, 30, 55, .76)),
-        url("manuel.jpg") center 35% / cover no-repeat;
-}
+        /* ==========================
+           EN-TÊTE
+        ========================== */
 
-.hero h2 {
-    font-size: clamp(29px, 5vw, 45px);
-    line-height: 1.25;
-    margin-bottom: 12px;
-}
+        .entete {
+            background: var(--blanc);
+            padding: 18px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 3px solid var(--bleu);
+        }
 
-.hero p {
-    max-width: 780px;
-    margin: 0 auto 20px;
-}
+        .logo {
+            width: 95px;
+            height: 95px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
 
-main {
-    max-width: 1050px;
-    margin: auto;
-    padding: 22px 16px;
-}
+        .identite {
+            text-align: left;
+        }
 
-.carte {
-    background: var(--blanc);
-    padding: 24px;
-    margin-bottom: 22px;
-    border: 1px solid #dce3ec;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(24, 49, 83, .07);
-}
+        .identite h1 {
+            color: var(--bleu);
+            font-size: clamp(23px, 4vw, 38px);
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
 
-h2.titre {
-    border-bottom: 2px solid var(--bleu);
-    padding-bottom: 10px;
-    margin-top: 0;
-    margin-bottom: 18px;
-    font-size: 27px;
-}
+        .identite p {
+            font-size: 15px;
+            color: #415775;
+        }
 
-h3 {
-    margin-bottom: 8px;
-}
+        .badge-eglise {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 5px 12px;
+            background: var(--bleu-clair);
+            color: var(--bleu);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
-.bouton {
-    display: inline-block;
-    background: var(--bleu);
-    color: var(--blanc);
-    border: 2px solid var(--bleu);
-    border-radius: 5px;
-    padding: 9px 16px;
-    margin: 5px 5px 5px 0;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 15px;
-}
+        /* ==========================
+           MENU
+        ========================== */
 
-.bouton:hover,
-.bouton:focus {
-    background: var(--blanc);
-    color: var(--bleu);
-}
+        .navigation {
+            background: var(--bleu);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
 
-.hero .bouton {
-    background: var(--blanc);
-    color: var(--bleu);
-    border-color: var(--blanc);
-}
+        .menu {
+            max-width: 1200px;
+            margin: auto;
+            padding: 10px 12px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
 
-.hero .bouton:hover {
-    background: var(--bleu);
-    color: var(--blanc);
-}
+        .bouton-menu {
+            background: transparent;
+            color: var(--blanc);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.25s, color 0.25s,
+                        transform 0.25s;
+        }
 
-.pages-menu {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-}
+        .bouton-menu:hover,
+        .bouton-menu.actif {
+            background: var(--blanc);
+            color: var(--bleu);
+            transform: translateY(-2px);
+        }
 
-.pages-menu .bouton {
-    display: block;
-    text-align: center;
-    padding: 14px;
-    margin: 0;
-}
+        .bouton-menu:focus-visible,
+        .bouton-principal:focus-visible,
+        .bouton-retour:focus-visible {
+            outline: 3px solid #8ab8f0;
+            outline-offset: 3px;
+        }
 
-.pasteur {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 22px;
-    align-items: center;
-}
+        /* ==========================
+           CONTENU PRINCIPAL
+        ========================== */
 
-.photo-pasteur {
-    width: 100%;
-    max-height: 290px;
-    object-fit: cover;
-    border: 3px solid var(--bleu);
-    border-radius: 7px;
-}
+        main {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            min-height: 450px;
+        }
 
-.liste {
-    padding-left: 25px;
-}
+        .page {
+            display: none;
+            animation: apparition 0.45s ease;
+        }
 
-.liste li {
-    margin-bottom: 12px;
-}
+        .page.active {
+            display: block;
+        }
 
-.citation {
-    border-left: 4px solid var(--bleu);
-    background: var(--fond);
-    padding: 16px;
-    margin: 18px 0;
-}
+        @keyframes apparition {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-th, td {
-    border: 1px solid #dce3ec;
-    padding: 10px;
-    text-align: left;
-}
+        .titre-section {
+            color: var(--bleu);
+            text-align: center;
+            font-size: clamp(25px, 4vw, 35px);
+            line-height: 1.3;
+            margin-bottom: 12px;
+        }
 
-th {
-    background: var(--bleu);
-    color: var(--blanc);
-}
+        .sous-titre {
+            text-align: center;
+            color: #52647d;
+            margin-bottom: 28px;
+        }
 
-tr:nth-child(even) {
-    background: var(--fond);
-}
+        .ligne-decorative {
+            width: 75px;
+            height: 4px;
+            background: var(--bleu);
+            border-radius: 5px;
+            margin: 15px auto 25px;
+        }
 
-.galerie {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 15px;
-}
+        .carte {
+            background: var(--blanc);
+            padding: 25px;
+            border-radius: var(--arrondi);
+            box-shadow: var(--ombre);
+            margin-bottom: 24px;
+        }
 
-.galerie img {
-    width: 100%;
-    height: 250px;
-    object-fit: contain;
-    background: var(--fond);
-    border: 2px solid var(--bleu);
-    border-radius: 6px;
-}
+        .carte h3 {
+            color: var(--bleu);
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
 
-.contact {
-    background: var(--bleu);
-    color: var(--blanc);
-}
+        .carte p {
+            margin-bottom: 12px;
+        }
 
-.contact h2 {
-    border-color: var(--blanc);
-}
+        .carte p:last-child {
+            margin-bottom: 0;
+        }
 
-.contact a:not(.bouton) {
-    color: var(--blanc);
-}
+        /* ==========================
+           ACCUEIL
+        ========================== */
 
-/* LES PAGES SONT MASQUÉES SAUF CELLE QUI EST OUVERTE */
+        .hero {
+            background:
+                linear-gradient(
+                    rgba(16, 35, 61, 0.78),
+                    rgba(16, 35, 61, 0.88)
+                ),
+                url("manuel.jpg") center 35% / cover no-repeat;
 
-.page {
-    display: none;
-}
+            min-height: 410px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 22px;
+            color: var(--blanc);
+            box-shadow: var(--ombre);
+            margin-bottom: 28px;
+        }
 
-.page.active {
-    display: block;
-}
+        .hero-contenu {
+            max-width: 780px;
+        }
 
-footer {
-    background: var(--bleu);
-    color: var(--blanc);
-    text-align: center;
-    padding: 22px 12px;
-    margin-top: 20px;
-}
+        .hero-petit-titre {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
 
-@media (max-width: 650px) {
-    header h1 {
-        font-size: 17px;
-    }
+        .hero h2 {
+            font-size: clamp(32px, 6vw, 54px);
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
 
-    .logo {
-        width: 52px;
-        height: 52px;
-    }
+        .hero p {
+            font-size: clamp(16px, 2.5vw, 19px);
+            margin-bottom: 25px;
+        }
 
-    nav button {
-        padding: 10px;
-        font-size: 13px;
-    }
+        .bouton-principal {
+            display: inline-block;
+            background: var(--blanc);
+            color: var(--bleu);
+            border: 2px solid var(--blanc);
+            padding: 12px 23px;
+            border-radius: 9px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.25s;
+        }
 
-    .pasteur {
-        grid-template-columns: 1fr;
-    }
+        .bouton-principal:hover {
+            background: transparent;
+            color: var(--blanc);
+        }
 
-    .photo-pasteur {
-        max-width: 250px;
-        margin: auto;
-    }
+        .grille-accueil {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 28px;
+        }
 
-    .pages-menu,
-    .galerie {
-        grid-template-columns: 1fr;
-    }
+        .carte-accueil {
+            background: var(--blanc);
+            border-radius: var(--arrondi);
+            padding: 24px 20px;
+            text-align: center;
+            box-shadow: var(--ombre);
+            border-bottom: 4px solid var(--bleu);
+        }
 
-    .carte {
-        padding: 17px;
-    }
+        .icone {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
 
-    h2.titre {
-        font-size: 23px;
-    }
+        .carte-accueil h3 {
+            color: var(--bleu);
+            margin-bottom: 8px;
+        }
 
-    th, td {
-        padding: 7px;
-        font-size: 13px;
-    }
+        .carte-accueil p {
+            font-size: 14px;
+        }
 
-    .hero {
-        min-height: 330px;
-    }
-}
+        .citation {
+            text-align: center;
+            background: var(--bleu-clair);
+            border-left: 5px solid var(--bleu);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            font-size: 18px;
+            font-style: italic;
+        }
 
-@media (prefers-reduced-motion: reduce) {
-    .bande span {
-        animation: none;
-        padding-left: 0;
-        white-space: normal;
-    }
-}
-</style>
+        /* ==========================
+           PASTEUR
+        ========================== */
+
+        .presentation-pasteur {
+            display: grid;
+            grid-template-columns: minmax(220px, 350px) 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .photo-pasteur {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: var(--arrondi);
+            box-shadow: var(--ombre);
+            border: 5px solid var(--blanc);
+        }
+
+        .nom-pasteur {
+            font-size: clamp(25px, 4vw, 34px);
+            color: var(--bleu);
+            margin-bottom: 8px;
+        }
+
+        .etiquette {
+            display: inline-block;
+            background: var(--bleu-clair);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* ==========================
+           LISTES ET TEXTES
+        ========================== */
+
+        .liste-contenu {
+            list-style: none;
+            counter-reset: numero;
+        }
+
+        .liste-contenu li {
+            position: relative;
+            padding: 15px 15px 15px 55px;
+            margin-bottom: 12px;
+            background: var(--blanc);
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(24, 49, 83, 0.07);
+        }
+
+        .liste-contenu li::before {
+            counter-increment: numero;
+            content: counter(numero);
+            position: absolute;
+            left: 14px;
+            top: 14px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--bleu);
+            color: var(--blanc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .verset {
+            background: var(--bleu-clair);
+            border-left: 5px solid var(--bleu);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 18px 0;
+            font-style: italic;
+        }
+
+        .reference-biblique {
+            font-weight: bold;
+            color: var(--bleu);
+            margin-top: 10px;
+        }
+
+        /* ==========================
+           HORAIRES
+        ========================== */
+
+        .liste-horaires {
+            display: grid;
+            gap: 14px;
+        }
+
+        .horaire {
+            display: grid;
+            grid-template-columns: 135px 1fr;
+            gap: 15px;
+            align-items: center;
+            padding: 18px;
+            background: var(--blanc);
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(24, 49, 83, 0.07);
+        }
+
+        .jour {
+            background: var(--bleu);
+            color: var(--blanc);
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .horaire h3 {
+            color: var(--bleu);
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        /* ==========================
+           GALERIE
+        ========================== */
+
+        .galerie {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .photo-cadre {
+            background: var(--blanc);
+            border-radius: var(--arrondi);
+            padding: 12px;
+            box-shadow: var(--ombre);
+            overflow: hidden;
+        }
+
+        .photo-cadre img {
+            width: 100%;
+            height: 320px;
+            object-fit: contain;
+            background: var(--bleu-clair);
+            border-radius: 10px;
+            transition: transform 0.35s;
+        }
+
+        .photo-cadre:hover img {
+            transform: scale(1.025);
+        }
+
+        .legende-photo {
+            text-align: center;
+            font-weight: bold;
+            color: var(--bleu);
+            padding: 12px 5px 5px;
+        }
+
+        /* ==========================
+           CONTACT
+        ========================== */
+
+        .grille-contact {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .contact-element {
+            background: var(--blanc);
+            padding: 24px;
+            border-radius: var(--arrondi);
+            box-shadow: var(--ombre);
+            overflow-wrap: anywhere;
+        }
+
+        .contact-element h3 {
+            color: var(--bleu);
+            margin-bottom: 10px;
+        }
+
+        .contact-element a {
+            color: var(--bleu);
+            font-weight: bold;
+        }
+
+        .contact-element p {
+            margin-bottom: 8px;
+        }
+
+        /* ==========================
+           BOUTON RETOUR
+        ========================== */
+
+        .zone-retour {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .bouton-retour {
+            background: var(--bleu);
+            color: var(--blanc);
+            border: 2px solid var(--bleu);
+            border-radius: 8px;
+            padding: 11px 20px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .bouton-retour:hover {
+            background: var(--blanc);
+            color: var(--bleu);
+        }
+
+        /* ==========================
+           PIED DE PAGE
+        ========================== */
+
+        footer {
+            background: var(--bleu-fonce);
+            color: var(--blanc);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 45px;
+        }
+
+        footer h3 {
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .footer-petit {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-top: 15px;
+        }
+
+        /* ==========================
+           ADAPTATION AUX TÉLÉPHONES
+        ========================== */
+
+        @media (max-width: 800px) {
+            .entete {
+                padding: 15px 12px;
+                gap: 12px;
+            }
+
+            .logo {
+                width: 72px;
+                height: 72px;
+            }
+
+            .identite p {
+                font-size: 13px;
+            }
+
+            .menu {
+                gap: 6px;
+            }
+
+            .bouton-menu {
+                padding: 9px 10px;
+                font-size: 13px;
+            }
+
+            main {
+                padding: 0 13px;
+                margin-top: 20px;
+            }
+
+            .grille-accueil {
+                grid-template-columns: 1fr;
+            }
+
+            .presentation-pasteur {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-pasteur {
+                max-width: 360px;
+                margin: auto;
+            }
+
+            .galerie {
+                grid-template-columns: 1fr;
+            }
+
+            .grille-contact {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 360px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .identite h1 {
+                font-size: 22px;
+            }
+
+            .identite p {
+                font-size: 12px;
+            }
+
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .bouton-menu {
+                padding: 8px 9px;
+                font-size: 12px;
+            }
+
+            .carte {
+                padding: 18px;
+            }
+
+            .horaire {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .jour {
+                max-width: 150px;
+            }
+
+            .photo-cadre img {
+                height: 250px;
+            }
+
+            .hero {
+                padding: 30px 16px;
+            }
+        }
+
+        /* Respecte les préférences de mouvement réduit */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <img class="logo" src="minoc.jpg" alt="Logo MINOC">
-    <div>
-        <h1>MINOC - Ministère Notre Cité</h1>
-        <p>Pasteur MANUEL ILUNGA · Kinshasa, RDC</p>
-    </div>
-</header>
-
-<nav aria-label="Menu principal">
-    <button type="button" onclick="ouvrirPage('accueil')">Accueil</button>
-    <button type="button" onclick="ouvrirPage('pasteur')">Notre pasteur</button>
-    <button type="button" onclick="ouvrirPage('vision')">Vision</button>
-    <button type="button" onclick="ouvrirPage('mission')">Mission</button>
-    <button type="button" onclick="ouvrirPage('objectifs')">Objectifs</button>
-    <button type="button" onclick="ouvrirPage('doctrine')">Doctrine</button>
-    <button type="button" onclick="ouvrirPage('horaires')">Cultes</button>
-    <button type="button" onclick="ouvrirPage('galerie')">Galerie</button>
-    <button type="button" onclick="ouvrirPage('contact')">Contact</button>
-</nav>
-
-<div class="bande">
-    <span>
-        BIENVENUE AU MINISTÈRE NOTRE CITÉ — MINOC —
-        PASTEUR MANUEL ILUNGA — KINSHASA, RDC —
-        QUE LE SEIGNEUR JÉSUS-CHRIST VOUS BÉNISSE !
-    </span>
-</div>
-
-<!-- PAGE ACCUEIL -->
-
-<div class="page active" id="accueil">
-
-    <section class="hero">
+    <!-- BANDE DÉFILANTE -->
+    <div class="bande-defilante">
         <div>
-            <h2>BIENVENUE À L'ÉGLISE MINOC</h2>
-            <p>
-                Une église consacrée à l'annonce de la Bonne Nouvelle,
-                à la transformation spirituelle et morale de l'homme
-                et à la préparation de l'Église à l'éternité.
-            </p>
-            <button class="bouton" onclick="ouvrirPage('vision')">
-                Découvrir notre vision
-            </button>
-            <button class="bouton" onclick="ouvrirPage('horaires')">
-                Nos horaires
-            </button>
+            BIENVENUE AU MINISTÈRE NOTRE CITÉ — MINOC
+            ✦ LA PAROLE DE DIEU ✦ LA FOI ✦ LA PRIÈRE
+            ✦ PRÉPARONS-NOUS POUR NOTRE CITÉ ✦
         </div>
-    </section>
-
-    <main>
-        <section class="carte">
-            <h2 class="titre">Bienvenue au Ministère Notre Cité</h2>
-            <p>
-                Nous vous souhaitons la bienvenue au MINOC,
-                à Kinshasa, en République démocratique du Congo.
-                Découvrez notre vision, notre mission, nos objectifs
-                et nos activités.
-            </p>
-        </section>
-
-        <section class="carte">
-            <h2 class="titre">Découvrez nos pages</h2>
-
-            <div class="pages-menu">
-                <button class="bouton" onclick="ouvrirPage('vision')">🙏 Notre vision</button>
-                <button class="bouton" onclick="ouvrirPage('mission')">📖 Notre mission</button>
-                <button class="bouton" onclick="ouvrirPage('objectifs')">🎯 Nos objectifs</button>
-                <button class="bouton" onclick="ouvrirPage('doctrine')">✝️ Nos points doctrinaux</button>
-                <button class="bouton" onclick="ouvrirPage('horaires')">🗓️ Horaires des cultes</button>
-                <button class="bouton" onclick="ouvrirPage('galerie')">📸 Galerie photos</button>
-                <button class="bouton" onclick="ouvrirPage('contact')">📞 Nous contacter</button>
-            </div>
-        </section>
-    </main>
-</div>
-
-<!-- PAGE PASTEUR -->
-
-<div class="page" id="pasteur">
-    <main>
-        <section class="carte">
-            <h2 class="titre">Notre pasteur</h2>
-
-            <div class="pasteur">
-                <img class="photo-pasteur"
-                     src="manuel.jpg"
-                     alt="Pasteur Manuel Ilunga">
-
-                <div>
-                    <h3>Pasteur MANUEL ILUNGA</h3>
-                    <p><strong>Ministère :</strong> Ministère Notre Cité (MINOC)</p>
-                    <p><strong>Ville :</strong> Kinshasa, RDC</p>
-                    <p>
-                        <strong>Adresse :</strong>
-                        18ème rue Limete/industriel,
-                        Boulevard Lumumba.
-                    </p>
-                    <p><strong>Téléphones :</strong></p>
-                    <p>0903235365</p>
-                    <p>0973943960</p>
-                </div>
-            </div>
-        </section>
-    </main>
-</div>
-
-<!-- PAGE VISION -->
-
-<div class="page" id="vision">
-    <main>
-        <section class="carte">
-            <h2 class="titre">La vision de l'Église MINOC</h2>
-
-            <p>
-                La Vision de l’église est d’apporter la bonne nouvelle,
-                la transformation spirituelle et morale de l’homme par
-                les enseignements bibliques, les enseignements moraux
-                et des formations afin de préparer l’église à l’éternité.
-            </p>
-
-            <h3>Notre vie sur cette terre</h3>
-
-            <p>
-                Notre vie sur cette terre ne doit être une finalité,
-                la bible ne demande de chercher premièrement le royaume
-                de Dieu et le reste nous sera donné comme bonus.
-            </p>
-
-            <div class="citation">
-                « Cherchez premièrement le royaume et la justice de Dieu ;
-                et toutes ces choses vous seront données par-dessus. »
-                — Matthieu 6:33
-            </div>
-        </section>
-    </main>
-</div>
-
-<!-- PAGE MISSION -->
-
-<div class="page" id="mission">
-    <main>
-        <section class="carte">
-            <h2 class="titre">Notre mission : NOTRE CITÉ</h2>
-
-            <h3>Textes bibliques</h3>
-            <p><strong>Matthieu 28:19 ; Philippiens 3:20-21</strong></p>
-
-            <div class="citation">
-                « Mais notre cité à nous est dans les cieux, d’où nous
-                attendons aussi comme Sauveur le Seigneur Jésus-Christ,
-                qui transformera le corps de notre humiliation, en le
-                rendant semblable au corps de sa gloire, par le pouvoir
-                qu’il a de s’assujettir toutes choses. »
-            </div>
-
-            <h3>La mission de l'Église</h3>
-
-            <p>
-                La mission de l'église donnée par Jésus Christ est
-                l'annoncer la bonne nouvelle, donc de faire des nations
-                des disciples de Jésus-Christ, de les baptiser et de leur
-                enseigner à garder sa Parole.
-            </p>
-
-            <p>
-                A cette mission la parole de Dieu a attaché une autre
-                promesse, « la cité» qui est la notre, cette cité est une
-                bourgeoisie, une ville de paix et bonheur réservée à ceux
-                qui vont croire au Seigneur Jésus Christ; Minoc est une
-                église qui a reçu la Mission spécifique de préparer les
-                disciples pour la vie dans cette cité.
-            </p>
-        </section>
-    </main>
-</div>
-
-<!-- PAGE OBJECTIFS -->
-
-<div class="page" id="objectifs">
-    <main>
-        <section class="carte">
-            <h2 class="titre">Les objectifs de l'Église</h2>
-
-            <ol class="liste">
-                <li>
-                    Prêcher la parole de Dieu conformément aux principes
-                    bibliques et de la Nouvelle Alliance en Jésus-Christ.
-                </li>
-
-                <li>
-                    Créer, gérer, animer, et développer des œuvres
-                    d'entraide et d'assistance fondées sur les principes
-                    bibliques tant pour les enfants, les jeunes et les
-                    familles démunies ;
-                </li>
-
-                <li>
-                    Mettre sur pied des écoles de formation missionnaire
-                    et spécialisée pour contribuer au developpement ;
-                </li>
-
-                <li>
-                    Produire de brochures, des livres, CD audio et vidéo
-                    pour l'évangélisation ;
-                </li>
-
-                <li>
-                    Promouvoir l'alphabétisation et la formation
-                    professionnelle en milieu chrétien pour une meilleure
-                    réinsertion ;
-                </li>
-
-                <li>
-                    Créer les médias spécialisés pour ses causes ;
-                </li>
-
-                <li>Célébrer le culte ;</li>
-
-                <li>
-                    Créer les conditions cadre de vie visant
-                    l’assainissement de l’état spirituel de l’homme afin
-                    d’améliorer son comportement vis-à-vis de son prochain
-                    dans la société ;
-                </li>
-
-                <li>
-                    Interpeler la conscience de l’homme pour la protection
-                    de son environnement et sa préparation pour la vie
-                    d’au-delà.
-                </li>
-            </ol>
-        </section>
-    </main>
-</div>
-
-<!-- PAGE DOCTRINE -->
-
-<div class="page" id="doctrine">
-    <main>
-        <section class="carte">
-            <h2 class="titre">Nos points doctrinaux</h2>
-
-            <ol class="liste">
-                <li>Nous croyons à la Divinité de Jésus christ ;</li>
-
-                <li>
-                    Nous croyons au Baptême d’eau par immersion au nom
-                    de Jésus christ et la nouvelle naissance (Actes 2 :38);
-                </li>
-
-                <li>
-                    Nous croyons au Baptême du saint esprit et l’opération
-                    de dons spirituels dans l’église ;
-                </li>
-
-                <li>Nous croyons au paiement de la dime et les offrandes ;</li>
-
-                <li>
-                    Nous croyons à la consécration des cinq ministères :
-                    Apôtres, Prophètes, Evangélistes, Pasteurs et Docteurs ;
-                </li>
-
-                <li>Nous croyons à la grâce ;</li>
-
-                <li>Nous croyons à la Consécration des mariages ;</li>
-
-                <li>Nous croyons à la célébration de la sainte cène ;</li>
-
-                <li>
-                    Nous croyons à la résurrection des morts et
-                    l’enlèvement universel de l’église ;
-                </li>
-
-                <li>Nous croyons à la souveraineté de Dieu.</li>
-            </ol>
-        </section>
-    </main>
-</div>
-
-<!-- PAGE HORAIRES -->
-
-<div class="page" id="horaires">
-    <main>
-        <section class="carte">
-            <h2 class="titre">Horaires des cultes</h2>
-
-            <p>Nous vous invitons à participer à nos cultes.</p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Jour</th>
-                        <th>Activité</th>
-                        <th>Heure</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>Mercredi</td>
-                        <td>Culte d'enseignement</td>
-                        <td>17h30 à 19h30</td>
-                    </tr>
-
-                    <tr>
-                        <td>Jeudi</td>
-                        <td>Culte des mamans de la cité</td>
-                        <td>16h00 à 18h00</td>
-                    </tr>
-
-                    <tr>
-                        <td>Vendredi</td>
-                        <td>Veillée de prière</td>
-                        <td>La nuit</td>
-                    </tr>
-
-                    <tr>
-                        <td>Samedi</td>
-                        <td>Culte de la Jeunesse de la cité</td>
-                        <td>16h00 à 18h00</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-    </main>
-</div>
-
-<!-- PAGE GALERIE -->
-
-<div class="page" id="galerie">
-    <main>
-        <section class="carte">
-            <h2 class="titre">Galerie photos</h2>
-
-            <p>Quelques images du Ministère Notre Cité.</p>
-
-            <div class="galerie">
-                <img src="1790015115821.jpg"
-                     alt="Photo du Ministère Notre Cité"
-                     loading="lazy">
-
-                <img src="IMG-20260926-WA0038.jpg"
-                     alt="Photo du Ministère Notre Cité"
-                     loading="lazy">
-            </div>
-        </section>
-    </main>
-</div>
-
-<!-- PAGE CONTACT -->
-
-<div class="page" id="contact">
-    <main>
-        <section class="carte contact">
-            <h2 class="titre">Nous contacter</h2>
-
-            <p><strong>Ministère :</strong> Ministère Notre Cité (MINOC)</p>
-            <p><strong>Pasteur :</strong> MANUEL ILUNGA</p>
-            <p><strong>Ville :</strong> Kinshasa, RDC</p>
-
-            <p>
-                <strong>Adresse :</strong>
-                18ème rue Limete/industriel,
-                Boulevard Lumumba.
-            </p>
-
-            <h3>Téléphones</h3>
-
-            <p><a href="tel:0903235365">0903235365</a></p>
-            <p><a href="tel:0973943960">0973943960</a></p>
-
-            <p>Que le Seigneur Jésus-Christ vous bénisse !</p>
-
-            <a class="bouton" href="tel:0903235365">
-                Appeler le ministère
-            </a>
-        </section>
-    </main>
-</div>
-
-<footer>
-    <p><strong>MINOC - Ministère Notre Cité</strong></p>
-    <p>Pasteur MANUEL ILUNGA · Kinshasa, RDC</p>
-    <p>© <span id="annee"></span> Ministère Notre Cité</p>
-</footer>
-
-<script>
-function ouvrirPage(nom) {
-    const pages = document.querySelectorAll(".page");
-    let pageTrouvee = false;
-
-    pages.forEach(function(page) {
-        const active = page.id === nom;
-        page.classList.toggle("active", active);
-
-        if (active) {
-            pageTrouvee = true;
-        }
-    });
-
-    if (!pageTrouvee) {
-        document.getElementById("accueil").classList.add("active");
-        return;
-    }
-
-    try {
-        history.replaceState(null, "", "#" + nom);
-    } catch (e) {
-        /* Le site continue de fonctionner même sans historique. */
-    }
-
-    window.scrollTo(0, 0);
-}
-
-function afficherPageDepuisAdresse() {
-    const nom = window.location.hash.substring(1);
-    const page = document.getElementById(nom);
-
-    if (page && page.classList.contains("page")) {
-        document.querySelectorAll(".page").forEach(function(element) {
-            element.classList.toggle("active", element.id === nom);
-        });
-    } else {
-        ouvrirPage("accueil");
-    }
-}
-
-document.getElementById("annee").textContent =
-    new Date().getFullYear();
-
-window.addEventListener("hashchange", afficherPageDepuisAdresse);
-
-afficherPageDepuisAdresse();
-</script>
-
-</body>
-    </html>
+    </div>
+
+    <!-- IDENTITÉ DE L'ÉGLISE -->
+    <header class="entete">
+
+        <img
+            class="logo"
+            src="minoc.jpg"
+            alt="Logo du Ministère Notre Cité"
+        >
+
+        <div class="identite">
+            <h1>MINOC</h1>
+            <p><strong>Ministère Notre Cité</strong></p>
+            <p>Kinshasa, République démocratique du Congo</p>
+            <span class="badge-eglise">FOI • PAROLE • ESPÉRANCE</span>
+        </div>
+
+    </header>
+
+    <!-- MENU DE NAVIGATION -->
+    <nav class="navigation" aria-label="Menu principal">
+        <div class="menu">
+
+            <button
+                class="bouton-menu actif"
+                type="button"
+                data-page="accueil"
+                onclick="ouvrirPage('accueil')">
+                Accueil
+            </button>
+
+            <button
+                class="bouton-menu"
+                type="button"
+                data-page="pasteur"
+                onclick="ouvrirPage('pasteur')">
+                Notre Pasteur
+            </button>
+
+            <button
+                class="bouton-menu"
+                type="button"
+                data-page="vision"
+                onclick="ouvrirPage('vision')">
+                Vision
+            </button>
+
+            <button
+                class="bouton-menu"
+                type="button"
+                data-page="mission"
+                onclick="ouvrirPage('mission')">
+                Mission
+            </button>
+
+            <button
+                class="bouton-menu"
+                type="button"
+                data-page="objectifs"
+                onclick="ouvrirPage('objectifs')">
+                Objectifs
+            </button>
+
+            <button
+                class="bouton-menu"
+                type="button"
+                data-page="doctrine"
+                onclick="ouvrirPage('doctrine')">
+                Points doctrinaux
+            </button>
+
+            <button
+                class="bouton-menu"
+                type="button"
+                data-page="horaires"
+                onclick="ouvrirPage('horaires')">
+                Horaires
+            </button>
+
+            <button
+                class="bouton-menu"
+                type="button"
+                data-
