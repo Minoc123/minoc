@@ -1,457 +1,316 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>MINOC - Ministère Notre Cité | Pasteur Manuel Ilunga</title>
-
-    <meta name="description"
-          content="Bienvenue au Ministère Notre Cité (MINOC), dirigé par le Pasteur Manuel Ilunga à Kinshasa, RDC. Découvrez notre vision, notre mission, nos objectifs et nos activités.">
-
-    <meta name="google-site-verification"
-          content="Rc6bKVPailSPGXTE6Mk4fN7yKD6f108NSU_5DZ-epCo">
-
-    <meta name="theme-color" content="#183153">
-
-    <style>
-        :root {
-            --bleu: #183153;
-            --bleu-clair: #24466f;
-            --blanc: #ffffff;
-            --fond: #f5f7fa;
-            --texte: #183153;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 90px;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--fond);
-            color: var(--texte);
-            line-height: 1.7;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        header {
-            background: var(--blanc);
-            border-bottom: 3px solid var(--bleu);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .entete {
-            max-width: 1150px;
-            margin: auto;
-            padding: 10px 18px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo {
-            width: 65px;
-            height: 65px;
-            object-fit: contain;
-            flex-shrink: 0;
-        }
-
-        .nom-eglise h1 {
-            font-size: 21px;
-            color: var(--bleu);
-            line-height: 1.3;
-        }
-
-        .nom-eglise p {
-            font-size: 13px;
-        }
-
-        nav {
-            background: var(--bleu);
-        }
-
-        .menu {
-            max-width: 1150px;
-            margin: auto;
-            padding: 0 12px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .menu a {
-            color: var(--blanc);
-            text-decoration: none;
-            padding: 12px 13px;
-            display: block;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .menu a:hover,
-        .menu a:focus {
-            background: var(--blanc);
-            color: var(--bleu);
-        }
-
-        .accueil {
-            min-height: 390px;
-            background:
-                linear-gradient(
-                    rgba(12, 32, 57, 0.76),
-                    rgba(12, 32, 57, 0.76)
-                ),
-                url("manuel.jpg") center 35% / cover no-repeat;
-            color: var(--blanc);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 55px 20px;
-        }
-
-        .accueil-contenu {
-            max-width: 850px;
-        }
-
-        .accueil .petit-titre {
-            font-size: 15px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .accueil h2 {
-            font-size: clamp(29px, 5vw, 48px);
-            line-height: 1.2;
-            margin-bottom: 15px;
-        }
-
-        .accueil p {
-            font-size: 17px;
-            margin-bottom: 22px;
-        }
-
-        .bouton {
-            display: inline-block;
-            background: var(--blanc);
-            color: var(--bleu);
-            text-decoration: none;
-            padding: 11px 18px;
-            border: 2px solid var(--blanc);
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 5px;
-        }
-
-        .bouton:hover,
-        .bouton:focus {
-            background: var(--bleu);
-            color: var(--blanc);
-        }
-
-        .bouton-bleu {
-            background: var(--bleu);
-            color: var(--blanc);
-            border-color: var(--bleu);
-        }
-
-        .bouton-bleu:hover,
-        .bouton-bleu:focus {
-            background: var(--blanc);
-            color: var(--bleu);
-        }
-
-        main {
-            max-width: 1150px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        section {
-            scroll-margin-top: 115px;
-            margin: 28px 0;
-        }
-
-        .carte {
-            background: var(--blanc);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid #dce3ec;
-            box-shadow: 0 3px 12px rgba(24, 49, 83, 0.07);
-        }
-
-        .titre-section {
-            color: var(--bleu);
-            font-size: 27px;
-            line-height: 1.3;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--bleu);
-        }
-
-        .sous-titre {
-            color: var(--bleu);
-            font-size: 20px;
-            margin: 18px 0 8px;
-        }
-
-        .pasteur {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .photo-pasteur {
-            width: 100%;
-            max-height: 280px;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 7px;
-            border: 3px solid var(--bleu);
-        }
-
-        .grille {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .petite-carte {
-            background: var(--blanc);
-            padding: 20px;
-            border-left: 4px solid var(--bleu);
-            border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(24, 49, 83, 0.06);
-        }
-
-        .petite-carte h3 {
-            margin-bottom: 8px;
-            color: var(--bleu);
-        }
-
-        .liste {
-            padding-left: 24px;
-        }
-
-        .liste li {
-            margin-bottom: 12px;
-        }
-
-        .citation {
-            background: var(--fond);
-            border-left: 4px solid var(--bleu);
-            padding: 18px;
-            margin: 15px 0;
-            font-style: italic;
-        }
-
-        .horaires {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        .horaires th,
-        .horaires td {
-            border: 1px solid #dce3ec;
-            padding: 12px;
-            text-align: left;
-        }
-
-        .horaires th {
-            background: var(--bleu);
-            color: var(--blanc);
-        }
-
-        .horaires tr:nth-child(even) {
-            background: var(--fond);
-        }
-
-        .galerie {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-            margin-top: 18px;
-        }
-
-        .galerie img {
-            display: block;
-            width: 100%;
-            height: 250px;
-            object-fit: contain;
-            background: var(--fond);
-            border: 2px solid var(--bleu);
-            border-radius: 7px;
-        }
-
-        .contact {
-            background: var(--bleu);
-            color: var(--blanc);
-        }
-
-        .contact .titre-section {
-            color: var(--blanc);
-            border-color: var(--blanc);
-        }
-
-        .contact a {
-            color: var(--blanc);
-        }
-
-        .contact .bouton {
-            color: var(--bleu);
-        }
-
-        footer {
-            background: var(--bleu);
-            color: var(--blanc);
-            text-align: center;
-            padding: 22px 15px;
-            margin-top: 30px;
-        }
-
-        footer p {
-            margin: 4px 0;
-        }
-
-        @media (max-width: 700px) {
-            .entete {
-                padding: 9px 12px;
-            }
-
-            .logo {
-                width: 52px;
-                height: 52px;
-            }
-
-            .nom-eglise h1 {
-                font-size: 17px;
-            }
-
-            .nom-eglise p {
-                font-size: 12px;
-            }
-
-            .menu a {
-                padding: 10px;
-                font-size: 13px;
-            }
-
-            .accueil {
-                min-height: 350px;
-                padding: 40px 15px;
-            }
-
-            .accueil p {
-                font-size: 15px;
-            }
-
-            main {
-                padding: 12px;
-            }
-
-            .carte {
-                padding: 18px;
-            }
-
-            .titre-section {
-                font-size: 23px;
-            }
-
-            .pasteur {
-                grid-template-columns: 1fr;
-            }
-
-            .photo-pasteur {
-                max-width: 260px;
-                max-height: 300px;
-                margin: auto;
-            }
-
-            .grille,
-            .galerie {
-                grid-template-columns: 1fr;
-            }
-
-            .horaires th,
-            .horaires td {
-                padding: 8px;
-                font-size: 13px;
-            }
-
-            .galerie img {
-                height: 230px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MINOC - Ministère Notre Cité</title>
+
+<meta name="description" content="Bienvenue au Ministère Notre Cité, MINOC, dirigé par le Pasteur Manuel Ilunga à Kinshasa, RDC.">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #183153;
+    line-height: 1.7;
+}
+
+header {
+    background: white;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+header h1 {
+    font-size: 23px;
+}
+
+header p {
+    font-size: 14px;
+}
+
+nav {
+    background: #183153;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background: white;
+    color: #183153;
+}
+
+/* BANDE DÉFILANTE */
+.bande {
+    background: white;
+    color: #183153;
+    border-top: 2px solid #183153;
+    border-bottom: 2px solid #183153;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+.bande span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: defilement 22s linear infinite;
+}
+
+@keyframes defilement {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* ACCUEIL */
+.hero {
+    min-height: 390px;
+    padding: 65px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+
+    background:
+        linear-gradient(rgba(14, 35, 61, 0.75),
+                        rgba(14, 35, 61, 0.75)),
+        url("manuel.jpg") center 35% / cover no-repeat;
+}
+
+.hero h2 {
+    font-size: clamp(30px, 5vw, 46px);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 750px;
+    margin: 0 auto 22px;
+    font-size: 17px;
+}
+
+.bouton {
+    display: inline-block;
+    background: #183153;
+    color: white;
+    border: 2px solid #183153;
+    border-radius: 5px;
+    padding: 11px 18px;
+    margin: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bouton:hover {
+    background: white;
+    color: #183153;
+}
+
+.hero .bouton {
+    background: white;
+    color: #183153;
+    border-color: white;
+}
+
+.hero .bouton:hover {
+    background: #183153;
+    color: white;
+}
+
+/* CONTENU */
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 18px;
+}
+
+.carte {
+    background: white;
+    border: 1px solid #dce3ec;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 10px rgba(24, 49, 83, 0.07);
+}
+
+h2.titre {
+    font-size: 27px;
+    border-bottom: 2px solid #183153;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.pasteur {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 25px;
+    align-items: center;
+}
+
+.photo-pasteur {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border: 3px solid #183153;
+    border-radius: 6px;
+}
+
+.menu-pages {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.page-bouton {
+    display: block;
+    background: white;
+    color: #183153;
+    text-decoration: none;
+    border: 2px solid #183153;
+    border-radius: 7px;
+    padding: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.page-bouton:hover {
+    background: #183153;
+    color: white;
+}
+
+footer {
+    background: #183153;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+@media (max-width: 650px) {
+    header h1 {
+        font-size: 18px;
+    }
+
+    .logo {
+        width: 55px;
+        height: 55px;
+    }
+
+    nav a {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .pasteur {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-pasteur {
+        max-width: 250px;
+        margin: auto;
+    }
+
+    .menu-pages {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 340px;
+        padding: 40px 15px;
+    }
+
+    .carte {
+        padding: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bande span {
+        animation: none;
+        padding-left: 0;
+        white-space: normal;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="entete">
-        <img class="logo"
-             src="minoc.jpg"
-             alt="Logo du Ministère Notre Cité">
+    <img class="logo" src="minoc.jpg" alt="Logo MINOC">
 
-        <div class="nom-eglise">
-            <h1>MINOC - Ministère Notre Cité</h1>
-            <p>Pasteur MANUEL ILUNGA · Kinshasa, RDC</p>
-        </div>
+    <div>
+        <h1>MINOC - Ministère Notre Cité</h1>
+        <p>Pasteur MANUEL ILUNGA · Kinshasa, RDC</p>
     </div>
-
-    <nav aria-label="Menu principal">
-        <div class="menu">
-            <a href="#accueil">Accueil</a>
-            <a href="#pasteur">Notre pasteur</a>
-            <a href="#vision">Vision</a>
-            <a href="#mission">Mission</a>
-            <a href="#objectifs">Objectifs</a>
-            <a href="#doctrine">Doctrine</a>
-            <a href="#activites">Cultes</a>
-            <a href="#galerie">Photos</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
 </header>
 
-<section class="accueil" id="accueil">
-    <div class="accueil-contenu">
-        <p class="petit-titre">MINISTÈRE NOTRE CITÉ</p>
+<nav aria-label="Menu principal">
+    <a href="index.html">Accueil</a>
+    <a href="vision.html">Vision</a>
+    <a href="mission.html">Mission</a>
+    <a href="objectifs.html">Objectifs</a>
+    <a href="doctrine.html">Doctrine</a>
+    <a href="horaires.html">Cultes</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
+<div class="bande">
+    <span>
+        BIENVENUE AU MINISTÈRE NOTRE CITÉ — MINOC —
+        PASTEUR MANUEL ILUNGA — KINSHASA, RDC —
+        QUE LE SEIGNEUR JÉSUS-CHRIST VOUS BÉNISSE !
+    </span>
+</div>
+
+<section class="hero">
+    <div>
         <h2>BIENVENUE À L'ÉGLISE MINOC</h2>
 
         <p>
-            Que la paix du Seigneur Jésus-Christ soit avec vous !
             Une église consacrée à l'annonce de la Bonne Nouvelle,
-            à la transformation spirituelle et morale de l'homme,
+            à la transformation spirituelle et morale de l'homme
             et à la préparation de l'Église à l'éternité.
         </p>
 
-        <a class="bouton" href="#vision">Découvrir notre vision</a>
-        <a class="bouton" href="#activites">Voir nos horaires</a>
+        <a class="bouton" href="vision.html">Découvrir notre vision</a>
+        <a class="bouton" href="horaires.html">Nos horaires de culte</a>
     </div>
 </section>
 
 <main>
 
-    <section id="pasteur" class="carte">
-        <h2 class="titre-section">Notre pasteur</h2>
+    <section class="carte">
+        <h2 class="titre">Notre pasteur</h2>
 
         <div class="pasteur">
             <img class="photo-pasteur"
@@ -459,288 +318,76 @@
                  alt="Pasteur Manuel Ilunga">
 
             <div>
-                <h3 class="sous-titre">Pasteur MANUEL ILUNGA</h3>
+                <h3>Pasteur MANUEL ILUNGA</h3>
 
                 <p>
-                    Bienvenue au Ministère Notre Cité, MINOC,
-                    situé à Kinshasa, en République démocratique du Congo.
-                </p>
-
-                <p>
-                    Notre engagement est de prêcher la Parole de Dieu,
-                    de former les disciples de Jésus-Christ et de préparer
-                    l'Église à la vie éternelle.
+                    Ministère Notre Cité (MINOC), Kinshasa,
+                    République démocratique du Congo.
                 </p>
 
                 <p>
                     <strong>Adresse :</strong>
-                    18ème rue Limete/industriel, Boulevard Lumumba,
-                    Kinshasa, RDC.
+                    18ème rue Limete/industriel,
+                    Boulevard Lumumba.
                 </p>
+
+                <p>
+                    <strong>Téléphones :</strong><br>
+                    <a href="tel:0903235365">0903235365</a><br>
+                    <a href="tel:0973943960">0973943960</a>
+                </p>
+
+                <a class="bouton" href="contact.html">Nous contacter</a>
             </div>
         </div>
     </section>
 
-    <section id="vision" class="carte">
-        <h2 class="titre-section">Notre vision</h2>
+    <section class="carte">
+        <h2 class="titre">Découvrez notre ministère</h2>
 
-        <p>
-            «La Vision de l’église est d’apporter la bonne nouvelle,
-            la transformation spirituelle et morale de l’homme par les
-            enseignements bibliques, les enseignements moraux et des
-            formations afin de préparer l’église à l’éternité.»
-        </p>
+        <div class="menu-pages">
+            <a class="page-bouton" href="vision.html">
+                🙏 Notre vision
+            </a>
 
-        <div class="citation">
-            Notre vie sur cette terre ne doit être une finalité,
-            la Bible nous demande de chercher premièrement le royaume
-            de Dieu et le reste nous sera donné comme bonus.
+            <a class="page-bouton" href="mission.html">
+                📖 Notre mission : Notre Cité
+            </a>
+
+            <a class="page-bouton" href="objectifs.html">
+                🎯 Les objectifs de l'Église
+            </a>
+
+            <a class="page-bouton" href="doctrine.html">
+                ✝️ Nos points doctrinaux
+            </a>
+
+            <a class="page-bouton" href="horaires.html">
+                🗓️ Horaires de nos cultes
+            </a>
+
+            <a class="page-bouton" href="galerie.html">
+                📸 Galerie photos
+            </a>
+
+            <a class="page-bouton" href="contact.html">
+                📞 Adresse et contacts
+            </a>
         </div>
-    </section>
-
-    <section id="mission" class="carte">
-        <h2 class="titre-section">Notre mission : NOTRE CITÉ</h2>
-
-        <h3 class="sous-titre">Textes bibliques</h3>
-
-        <p><strong>Matthieu 28:19 ; Philippiens 3:20-21</strong></p>
-
-        <div class="citation">
-            « Mais notre cité à nous est dans les cieux, d’où nous
-            attendons aussi comme Sauveur le Seigneur Jésus-Christ,
-            qui transformera le corps de notre humiliation, en le
-            rendant semblable au corps de sa gloire, par le pouvoir
-            qu’il a de s’assujettir toutes choses. »
-        </div>
-
-        <h3 class="sous-titre">Notre mission</h3>
-
-        <p>
-            La mission de l'église donnée par Jésus Christ est
-            l'annoncer la bonne nouvelle, donc de faire des nations
-            des disciples de Jésus-Christ, de les baptiser et de leur
-            enseigner à garder sa Parole.
-        </p>
-
-        <p style="margin-top: 12px;">
-            A cette mission la parole de Dieu a attaché une autre
-            promesse, « la cité» qui est la notre, cette cité est une
-            bourgeoisie, une ville de paix et bonheur réservée à ceux
-            qui vont croire au Seigneur Jésus Christ; Minoc est une
-            église qui a reçu la Mission spécifique de préparer les
-            disciples pour la vie dans cette cité.
-        </p>
-    </section>
-
-    <section id="objectifs">
-        <div class="carte">
-            <h2 class="titre-section">Les objectifs de l'Église</h2>
-
-            <ol class="liste">
-                <li>
-                    Prêcher la parole de Dieu conformément aux principes
-                    bibliques et de la Nouvelle Alliance en Jésus-Christ.
-                </li>
-
-                <li>
-                    Créer, gérer, animer, et développer des œuvres
-                    d'entraide et d'assistance fondées sur les principes
-                    bibliques tant pour les enfants, les jeunes et les
-                    familles démunies ;
-                </li>
-
-                <li>
-                    Mettre sur pied des écoles de formation missionnaire
-                    et spécialisée pour contribuer au developpement ;
-                </li>
-
-                <li>
-                    Produire de brochures, des livres, CD audio et vidéo
-                    pour l'évangélisation ;
-                </li>
-
-                <li>
-                    Promouvoir l'alphabétisation et la formation
-                    professionnelle en milieu chrétien pour une meilleure
-                    réinsertion ;
-                </li>
-
-                <li>
-                    Créer les médias spécialisés pour ses causes ;
-                </li>
-
-                <li>
-                    Célébrer le culte ;
-                </li>
-
-                <li>
-                    Créer les conditions cadre de vie visant
-                    l’assainissement de l’état spirituel de l’homme afin
-                    d’améliorer son comportement vis-à-vis de son prochain
-                    dans la société ;
-                </li>
-
-                <li>
-                    Interpeler la conscience de l’homme pour la protection
-                    de son environnement et sa préparation pour la vie
-                    d’au-delà.
-                </li>
-            </ol>
-        </div>
-    </section>
-
-    <section id="doctrine" class="carte">
-        <h2 class="titre-section">Nos points doctrinaux</h2>
-
-        <ol class="liste">
-            <li>Nous croyons à la Divinité de Jésus christ ;</li>
-
-            <li>
-                Nous croyons au Baptême d’eau par immersion au nom de
-                Jésus christ et la nouvelle naissance (Actes 2 :38);
-            </li>
-
-            <li>
-                Nous croyons au Baptême du saint esprit et l’opération
-                de dons spirituels dans l’église ;
-            </li>
-
-            <li>
-                Nous croyons au paiement de la dime et les offrandes ;
-            </li>
-
-            <li>
-                Nous croyons à la consécration des cinq ministères :
-                Apôtres, Prophètes, Evangélistes, Pasteurs et Docteurs ;
-            </li>
-
-            <li>Nous croyons à la grâce ;</li>
-
-            <li>Nous croyons à la Consécration des mariages ;</li>
-
-            <li>
-                Nous croyons à la célébration de la sainte cène ;
-            </li>
-
-            <li>
-                Nous croyons à la résurrection des morts et l’enlèvement
-                universel de l’église ;
-            </li>
-
-            <li>Nous croyons à la souveraineté de Dieu.</li>
-        </ol>
-    </section>
-
-    <section id="activites" class="carte">
-        <h2 class="titre-section">Nos horaires de culte</h2>
-
-        <p>
-            Nous vous invitons à participer à nos cultes et à nos
-            rencontres de prière.
-        </p>
-
-        <table class="horaires">
-            <thead>
-                <tr>
-                    <th>Jour</th>
-                    <th>Activité</th>
-                    <th>Heure</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>Mercredi</td>
-                    <td>Culte d'enseignement</td>
-                    <td>17h30 – 19h30</td>
-                </tr>
-
-                <tr>
-                    <td>Jeudi</td>
-                    <td>Culte des mamans de la cité</td>
-                    <td>16h00 – 18h00</td>
-                </tr>
-
-                <tr>
-                    <td>Vendredi</td>
-                    <td>Veillée de prière</td>
-                    <td>La nuit</td>
-                </tr>
-
-                <tr>
-                    <td>Samedi</td>
-                    <td>Culte de la Jeunesse de la cité</td>
-                    <td>16h00 – 18h00</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <section id="galerie" class="carte">
-        <h2 class="titre-section">Galerie photos</h2>
-
-        <p>
-            Découvrez quelques images du Ministère Notre Cité.
-        </p>
-
-        <div class="galerie">
-            <img src="1790015115821.jpg"
-                 alt="Photo du Ministère Notre Cité"
-                 loading="lazy">
-
-            <img src="IMG-20260926-WA0038.jpg"
-                 alt="Photo du Ministère Notre Cité"
-                 loading="lazy">
-        </div>
-    </section>
-
-    <section id="contact" class="carte contact">
-        <h2 class="titre-section">Contactez-nous</h2>
-
-        <p><strong>Ministère Notre Cité (MINOC)</strong></p>
-
-        <p><strong>Pasteur :</strong> MANUEL ILUNGA</p>
-
-        <p><strong>Ville :</strong> Kinshasa, RDC</p>
-
-        <p>
-            <strong>Adresse :</strong>
-            18ème rue Limete/industriel, Boulevard Lumumba.
-        </p>
-
-        <p>
-            <strong>Téléphones :</strong>
-        </p>
-
-        <p>
-            <a href="tel:0903235365">0903235365</a>
-            &nbsp; / &nbsp;
-            <a href="tel:0973943960">0973943960</a>
-        </p>
-
-        <p style="margin-top: 15px;">
-            Que le Seigneur Jésus-Christ vous bénisse !
-        </p>
-
-        <a class="bouton" href="tel:0903235365">
-            Appeler le ministère
-        </a>
     </section>
 
 </main>
 
 <footer>
     <p><strong>MINOC - Ministère Notre Cité</strong></p>
-
     <p>Pasteur MANUEL ILUNGA · Kinshasa, RDC</p>
-
-    <p>© <span id="annee"></span> Ministère Notre Cité. Tous droits réservés.</p>
+    <p>© <span id="annee"></span> Ministère Notre Cité</p>
 </footer>
 
 <script>
-    document.getElementById("annee").textContent =
-        new Date().getFullYear();
+document.getElementById("annee").textContent =
+    new Date().getFullYear();
 </script>
 
 </body>
-  </html>
+            </html>
