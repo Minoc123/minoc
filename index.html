@@ -2,265 +2,95 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MINOC - Ministère Notre Cité, Pasteur Manuel Ilunga, Kinshasa, RDC.">
 <title>MINOC - Ministère Notre Cité</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f7fa;
-  color: #183153;
-  line-height: 1.7;
-}
-
-header {
-  background: #183153;
-  color: white;
-  text-align: center;
-  padding: 25px 15px;
-}
-
-.logo {
-  width: 110px;
-  height: 110px;
-  object-fit: contain;
-  background: white;
-  border-radius: 50%;
-  padding: 5px;
-  margin-bottom: 10px;
-}
-
-header h1 {
-  font-size: 30px;
-}
-
-header p {
-  font-size: 17px;
-}
-
-nav {
-  background: white;
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  box-shadow: 0 2px 8px #00000018;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-nav a {
-  background: #183153;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover {
-  background: #2c5685;
-}
-
-.hero {
-  min-height: 420px;
-  background: linear-gradient(#18315388, #183153aa),
-    url("manuel.jpg") center 30% / cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 30px 15px;
-  color: white;
-}
-
-.hero h2 {
-  font-size: clamp(28px, 5vw, 44px);
-  margin-bottom: 12px;
-}
-
-.hero p {
-  font-size: 19px;
-}
-
-main {
-  max-width: 1100px;
-  margin: auto;
-  padding: 25px 15px;
-}
-
-section {
-  background: white;
-  margin: 22px 0;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 3px 12px #18315312;
-}
-
-h2, h3 {
-  color: #183153;
-  margin-bottom: 12px;
-}
-
-.pasteur {
-  text-align: center;
-}
-
-.pasteur img {
-  width: 220px;
-  max-width: 100%;
-  height: 260px;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 10px;
-  border: 4px solid #183153;
-  margin-bottom: 12px;
-}
-
-.boutons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.boutons a {
-  display: inline-block;
-  background: #183153;
-  color: white;
-  text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 7px;
-  font-weight: bold;
-}
-
-.boutons a:hover {
-  background: #2c5685;
-}
-
-.horaires li {
-  margin-left: 22px;
-  margin-bottom: 8px;
-}
-
-footer {
-  background: #183153;
-  color: white;
-  text-align: center;
-  padding: 25px 15px;
-  margin-top: 30px;
-}
-
-footer a {
-  color: white;
-}
-
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 24px;
-  }
-
-  nav a {
-    padding: 9px 12px;
-    font-size: 14px;
-  }
-
-  section {
-    padding: 18px;
-  }
-
-  .hero {
-    min-height: 350px;
-  }
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fa;color:#183153;line-height:1.7}
+header,footer{background:#183153;color:white;text-align:center;padding:20px 12px}
+.logo{width:85px;height:85px;object-fit:contain;background:white;border-radius:50%}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:12px;background:white}
+nav a,.button{display:inline-block;background:#183153;color:white;text-decoration:none;padding:9px 13px;border-radius:5px}
+nav a:hover,.button:hover{background:#2c5685}
+.hero{min-height:320px;background:linear-gradient(#18315388,#183153aa),url('manuel.jpg') center 30%/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:white;padding:25px 15px}
+.hero h2{font-size:clamp(26px,5vw,42px);margin:0 0 10px}
+main{max-width:950px;margin:auto;padding:15px}
+section{background:white;margin:18px 0;padding:20px;border-radius:8px}
+h2,h3{color:#183153}
+.pasteur{text-align:center}
+.pasteur img{width:180px;max-width:100%;height:210px;object-fit:cover;object-position:top;border-radius:8px}
+.buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+li{margin-bottom:7px}
+footer{margin-top:25px}
 </style>
 </head>
 
 <body>
-
 <header>
-  <img src="minoc.jpg" alt="Logo MINOC" class="logo">
-  <h1>MINOC - MINISTÈRE NOTRE CITÉ</h1>
-  <p>Une église préparée pour l'éternité</p>
+<img class="logo" src="minoc.jpg" alt="Logo MINOC" width="85" height="85">
+<h1>MINOC - MINISTÈRE NOTRE CITÉ</h1>
+<p>Pasteur Manuel Ilunga</p>
 </header>
 
-<nav>
-  <a href="index.html">Accueil</a>
-  <a href="vision.html">Vision</a>
-  <a href="mission.html">Mission</a>
-  <a href="objectifs.html">Objectifs</a>
-  <a href="doctrine.html">Points doctrinaux</a>
+<nav aria-label="Menu principal">
+<a href="index.html">Accueil</a>
+<a href="vision.html">Vision</a>
+<a href="mission.html">Mission</a>
+<a href="objectifs.html">Objectifs</a>
+<a href="doctrine.html">Points doctrinaux</a>
 </nav>
 
 <div class="hero">
-  <div>
-    <h2>BIENVENUE À L'ÉGLISE MINOC</h2>
-    <p>Ministère Notre Cité</p>
-    <p>La Parole de Dieu, la transformation et la préparation à l'éternité.</p>
-  </div>
+<div>
+<h2>BIENVENUE À L'ÉGLISE MINOC</h2>
+<p>La Parole de Dieu, la transformation et la préparation à l'éternité.</p>
+</div>
 </div>
 
 <main>
+<section class="pasteur">
+<img src="manuel.jpg" alt="Pasteur Manuel Ilunga" width="180" height="210" loading="lazy">
+<h2>Pasteur MANUEL ILUNGA</h2>
+<p>Ministère Notre Cité — Kinshasa, RDC</p>
+</section>
 
-  <section class="pasteur">
-    <img src="manuel.jpg" alt="Pasteur Manuel Ilunga">
-    <h2>Pasteur MANUEL ILUNGA</h2>
-    <p>Ministère Notre Cité - MINOC</p>
-    <p>Kinshasa, République démocratique du Congo</p>
-  </section>
+<section>
+<h2>Bienvenue dans notre ministère</h2>
+<p>Le Ministère Notre Cité vous accueille pour découvrir la Parole de Dieu, grandir dans la foi et avancer dans une vie de transformation spirituelle et morale.</p>
+</section>
 
-  <section>
-    <h2>Bienvenue dans notre ministère</h2>
-    <p>
-      Le Ministère Notre Cité vous accueille pour grandir dans la foi,
-      découvrir la Parole de Dieu et avancer dans une vie de transformation
-      spirituelle et morale.
-    </p>
-  </section>
+<section>
+<h2>Découvrez notre ministère</h2>
+<div class="buttons">
+<a class="button" href="vision.html">Notre Vision</a>
+<a class="button" href="mission.html">Notre Mission</a>
+<a class="button" href="objectifs.html">Nos Objectifs</a>
+<a class="button" href="doctrine.html">Points doctrinaux</a>
+</div>
+</section>
 
-  <section>
-    <h2>Découvrez MINOC</h2>
-    <p>Consultez les différentes rubriques de notre ministère :</p>
-    <div class="boutons">
-      <a href="vision.html">Découvrir notre Vision</a>
-      <a href="mission.html">Découvrir notre Mission</a>
-      <a href="objectifs.html">Nos Objectifs</a>
-      <a href="doctrine.html">Nos Points doctrinaux</a>
-    </div>
-  </section>
+<section>
+<h2>Horaires des cultes</h2>
+<ul>
+<li><strong>Mercredi :</strong> Culte d'enseignement, 17h30–19h30.</li>
+<li><strong>Jeudi :</strong> Culte des mamans de la cité, 16h–18h.</li>
+<li><strong>Vendredi :</strong> Veillée de prière la nuit.</li>
+<li><strong>Samedi :</strong> Culte de la jeunesse de la cité, 16h–18h.</li>
+</ul>
+</section>
 
-  <section>
-    <h2>Nos cultes et réunions</h2>
-    <ul class="horaires">
-      <li><strong>Mercredi :</strong> Culte d'enseignement, de 17h30 à 19h30.</li>
-      <li><strong>Jeudi :</strong> Culte des mamans de la cité, de 16h à 18h.</li>
-      <li><strong>Vendredi :</strong> Veillée de prière la nuit.</li>
-      <li><strong>Samedi :</strong> Culte de la jeunesse de la cité, de 16h à 18h.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Nous trouver</h2>
-    <p><strong>Adresse :</strong> 18ème rue, Limete/Industriel, Boulevard Lumumba, Kinshasa, RDC.</p>
-  </section>
-
+<section>
+<h2>Adresse</h2>
+<p>18ème rue, Limete/Industriel, Boulevard Lumumba, Kinshasa, République démocratique du Congo.</p>
+</section>
 </main>
 
 <footer>
-  <p><strong>MINOC - Ministère Notre Cité</strong></p>
-  <p>Pasteur Manuel Ilunga</p>
-  <p>Kinshasa, République démocratique du Congo</p>
-  <p>© MINOC - Tous droits réservés</p>
+<p><strong>MINOC — Ministère Notre Cité</strong></p>
+<p>Kinshasa, République démocratique du Congo</p>
+<p>© MINOC — Tous droits réservés</p>
 </footer>
-
 </body>
-      </html>
+</html>
